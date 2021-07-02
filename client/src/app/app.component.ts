@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,12 @@ export class AppComponent implements OnInit{
   title = 'Corperate Template';
   users:any;
 
+  addressVal = new FormControl();
+  setNameValue(){
+    this.addressVal.setValue("300 Broadway")
+  }
 
   constructor(private http: HttpClient) {}
-
-
-
   ngOnInit(){
     this.getUsers()
   }

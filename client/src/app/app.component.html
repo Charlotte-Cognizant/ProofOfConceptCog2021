@@ -1,11 +1,14 @@
 <h1>{{title}}</h1>
 <div>
-    <button mat-button> Submit Address</button>
+    <button (click)= "setNameValue()">Set the address!</button>
 
-</div>
+
 <div>
-    <form class="example-form">
-          <input matInput placeholder="Address" value="100 Washington Street">
-      </form>
-      
+    <input addressVal placeholder="1000 Washington Street" value="" >  
+    <p>{{addressVal.value}}</p>
+</div>
+<ul>
+<li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
+
+</ul>
 </div>
