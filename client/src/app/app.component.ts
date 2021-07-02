@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   
-  title = 'Meme and Dream';
+  title = 'Corperate Template';
   users:any;
 
 
