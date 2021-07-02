@@ -1,15 +1,21 @@
 import { template } from "@angular-devkit/schematics";
-
+import { Component } from "@angular/core";
+//angular.ioguide/user-input
+@Component({
+selector: 'app-key-up2',
 template:`
-    <input (keyup) = "onKey($event)">
+    
+    <input #box (keyup) = "onKey(box.value)">
     <p>{{values}}</p>
-    angular.ioguide/user-input
+    
 `
-export class KeyUpComponent_v1{
+})
+export class KeyUpComponent{
     values = ' ';
-    onKey(event: KeyboardEvent) {
-        this.values += (event.target as HTMLInputElement).value +' | ';
+    onKey(value:string) {
+        this.values += value +' | ';
     }
+
 }
 
    
