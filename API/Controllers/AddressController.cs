@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
-
+//Controller that incorperates the database context and nothing else. Can be used for additional HTTPS requests etc and other api functions. No defined function atm
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -29,12 +30,15 @@ namespace API.Controllers
 
 
         [HttpGet("{id}")]
+        //ID get request that returns a given users information placeholder function
         public async Task <ActionResult<RegUser>> GetUser(int id) 
         {
             return await _context.Users.FindAsync(id);   
         }
 
-        [HttpPost("addresssregister")]
+        [HttpPost("AdrPost")]
+        //Takes user input as strings, (paramaters in http) and then returns an address data object. Adds addressData to the database. 
+        //Todo update for DTO addressData
         public async Task<ActionResult<AddressData>> pollAddress(string address, string city, string state, string zip) {
             var searchAddress = new AddressData{
                 City=city,
@@ -44,6 +48,7 @@ namespace API.Controllers
             };
             _context.adress.Add(searchAddress);
             await _context.SaveChangesAsync();
+
             return searchAddress;
         }
     

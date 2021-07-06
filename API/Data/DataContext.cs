@@ -9,6 +9,8 @@ namespace API.Data
         public DataContext(DbContextOptions options) : base(options)
         {
             //Set args in startup
+            //Using existing entities, incorperating them with DbSet meants that EF (entity framework) puts them into the SQL database. You can include your own entities using this file
+            //And a  created entity.
         }
 
 
