@@ -1,0 +1,7 @@
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.csproj.AssemblyReference.cache
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.AssemblyInfoInputs.cache
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.AssemblyInfo.cs
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.csproj.CoreCompileInputs.cache
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.RazorAssemblyInfo.cache
+C:\Users\david\Source\Repos\ProofOfConceptCog2021\Database Info Transfer\obj\Debug\netcoreapp3.1\Database Info Transfer.RazorAssemblyInfo.cs
