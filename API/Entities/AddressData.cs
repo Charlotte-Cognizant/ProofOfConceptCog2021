@@ -5,13 +5,13 @@ namespace API.Entities
         //auto incremented id
         public int ID{get; set;}
     
-        public string streetAddress{get; set;}
+        public string StreetAddress{get; set;}
 
-        public string zip{get;set;}
+        public string Zip{get;set;}
 
-        public string state{get; set;}
+        public string State{get; set;}
 
-        public string city {get; set;}
+        public string City {get; set;}
 
 
     }

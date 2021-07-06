@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
@@ -33,7 +34,18 @@ namespace API.Controllers
             return await _context.Users.FindAsync(id);   
         }
 
-        
-
+        [HttpPost("addresssregister")]
+        public async Task<ActionResult<AddressData>> pollAddress(string address, string city, string state, string zip) {
+            var searchAddress = new AddressData{
+                City=city,
+                StreetAddress=address,
+                State = state,
+                Zip = zip
+            };
+            _context.adress.Add(searchAddress);
+            await _context.SaveChangesAsync();
+            return searchAddress;
+        }
+    
     }
 }
