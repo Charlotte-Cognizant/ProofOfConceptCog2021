@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<div>
+    <form>
+    <button (click)= "setAddressValue()">Set the address!</button>
+    Address : <input type ="text"
+    [formControl] = "addressControl"
+    [(ngModel)] = 'address'>  
+    </form>
+<ul>
+<li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
+
+</ul>
+</div>
