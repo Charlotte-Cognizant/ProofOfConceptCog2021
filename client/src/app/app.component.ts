@@ -8,14 +8,24 @@ import { FormControl } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit{
   
   title = 'Corperate Template';
   users:any;
+  addressControl = new FormControl();
+  address = ' ';
 
-  addressVal = new FormControl();
-  setNameValue(){
-    this.addressVal.setValue("300 Broadway")
+  setNullValue(){
+    this.addressControl.setValue("")
+  }
+
+  setAddressValue(){
+    
+  //Here is where a data operation occurs I think I need to make an api call.
+
+
   }
 
   constructor(private http: HttpClient) {}

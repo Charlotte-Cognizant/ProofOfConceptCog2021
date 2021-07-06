@@ -1,12 +1,11 @@
 <h1>{{title}}</h1>
 <div>
-    <button (click)= "setNameValue()">Set the address!</button>
-
-
-<div>
-    <input addressVal placeholder="1000 Washington Street" value="" >  
-    <p>{{addressVal.value}}</p>
-</div>
+    <form>
+    <button (click)= "setAddressValue()">Set the address!</button>
+    Address : <input type ="text"
+    [formControl] = "addressControl"
+    [(ngModel)] = 'address'>  
+    </form>
 <ul>
 <li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
 

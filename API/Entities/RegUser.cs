@@ -7,6 +7,7 @@ namespace API.Entities
         public string RegUserName {get; set;}
 
         public  string userEmail { get; set; }
+
     
     }
 

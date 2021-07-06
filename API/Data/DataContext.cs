@@ -13,5 +13,8 @@ namespace API.Data
 
 
         public DbSet<RegUser> Users {get;set;} 
+        
+        public DbSet<AddressData> adress{get; set;}
+
     }
 }

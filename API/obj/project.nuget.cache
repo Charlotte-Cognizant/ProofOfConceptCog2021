@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8UkL0WJ94I+PR6TFEuXokOy4cpwF8ya2Fgb4Ukcsk9jWdyzEQydfQkJtZe8IDA6T7PrEMvq3N0+SfiEObdgSgQ==",
+  "dgSpecHash": "KHRpjkR4g5BwRxGgQUbbX8itxWRLr0iHk63ASPywBKL65OwuR009qUIbiT6U0c1MJw3drdw0VogBGDVJrr+Blw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jroux\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\jroux\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
