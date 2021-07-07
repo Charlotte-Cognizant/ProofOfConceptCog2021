@@ -65,7 +65,7 @@ getUsers(){
   })
 }
 submitAddress(){
-  this.http.post<any>('http://localhost:5000/api/User/AdrPost?address=1&city=2&state=3&zip=4', {title: 'addressDetailSubmission'}).subscribe(data=>{
+  this.http.post<any>('http://localhost:5001/api/User/AdrPost', {title: 'addressDetailSubmission'}).subscribe(data=>{
     this.address = data.address;
     this.zip = data.zip;
     console.log("attempted Post");
