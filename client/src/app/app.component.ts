@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {Map} from 'mapbox-gl';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,19 @@ import { FormControl } from '@angular/forms';
 //
 export class AppComponent implements OnInit{
   
+ // or "const mapboxgl = require('mapbox-gl');"
+
+
   title = 'Corperate Template';
   users:any;
   addressControl = new FormControl();
   address = ' ';
+  style = 'mapbox://styles/mapbox/streets-v11';
+  lat = 37.75;
+  lng = -122.41;
 
+
+  
   //Null function to set address value, pretty sure this is from an old form
   setNullValue(){
     this.addressControl.setValue("")
@@ -31,8 +40,15 @@ export class AppComponent implements OnInit{
   }
 
   constructor(private http: HttpClient) {}
-  ngOnInit(){
-    //On frontend startup this runs and executes getUsers.
+  ngOnInit(){     
+   var map = new Map({
+      accessToken : 'pk.eyJ1IjoiY2hhcmxvdHRlLWNvZ25pemFudCIsImEiOiJja3FzcXlsdzcxb2F0MnZwNTNuZGprNjZ3In0.j3qiyKwcyQn-k2LH89tZ-w',
+      container:'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
+
+
+   });
+
     this.getUsers()
   }
 
