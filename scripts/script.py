@@ -1,5 +1,6 @@
 import osmnx as ox
 import os
+import sys
 
 
 #create building directory if doesn't already exist
@@ -7,7 +8,7 @@ if not os.path.exists("buildings"):
     os.mkdir("buildings")
 
 #address recieved from web api
-address = "77 Excelsior Ave, Saratoga Springs, NY 12866"
+address = str(sys.argv[1])
 
 # specify that we're retrieving building footprint geometries
 tags = {"building": True}
@@ -27,7 +28,7 @@ fp = f"./buildings/{address}"
 gdf_save = gdf.applymap(lambda x: str(x) if isinstance(x, list) else x)
 
 #file format to save footprints as- "geopackage" or "geojson" or "both"
-ff = "both"
+ff = str(sys.argv[2])
 
 #save file as indicated format
 if ff == "geopackage":
