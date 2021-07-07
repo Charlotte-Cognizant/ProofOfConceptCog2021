@@ -1,8 +1,12 @@
 Instructions for insrtalling OSMnx and documentation: https://osmnx.readthedocs.io/en/stable/
 
-Enter any valid address in address variable. 
-Set ff variable to desired format.
+Enter any valid address string as first cmd argument. 
+Enter desired format as second argument ("both" or "geojson" or "geopackage").
 Output will be generated in ./buildings.
+
+RUN EXAMPLE: 
+python script.py "77 Excelsior Ave, Saratoga Springs, NY 12866" "both"
+
 
 *I have not figured out a way to run outside of Anaconda Prompt. Not sure if that's good or bad yet, just a heads up.*
 
