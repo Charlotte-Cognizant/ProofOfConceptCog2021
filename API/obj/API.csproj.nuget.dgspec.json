@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {}
+    "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {
+    "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+        "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
         "packagesPath": "C:\\Users\\jroux\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\obj\\",
+        "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jroux\\AppData\\Roaming\\NuGet\\NuGet.Config"

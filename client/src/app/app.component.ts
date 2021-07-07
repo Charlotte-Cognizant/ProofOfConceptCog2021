@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 37.75;
   lng = -122.41;
-
+  zip='';
 
   
   //Null function to set address value, pretty sure this is from an old form
@@ -59,9 +59,18 @@ getUsers(){
   //output from API call.
   this.http.get('https://localhost:5001/api/user').subscribe(response => {
     this.users = response;
+    console.log("ping");
   },error => {
     console.log(error);
   })
 }
+submitAddress(){
+  this.http.post<any>('http://localhost:5000/api/User/AdrPost?address=1&city=2&state=3&zip=4', {title: 'addressDetailSubmission'}).subscribe(data=>{
+    this.address = data.address;
+    this.zip = data.zip;
+    console.log("attempted Post");
+  })
+}
+
 
 }
