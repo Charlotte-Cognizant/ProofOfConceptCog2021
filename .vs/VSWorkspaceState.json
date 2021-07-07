@@ -1,4 +1,10 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\API",
+    "\\API\\Entities",
+    "\\Database Info Transfer"
+  ],
+  "SelectedNode": "\\Database Info Transfer\\Info_Transfer.cs",
   "PreviewInSolutionExplorer": false
 }

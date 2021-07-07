@@ -1,11 +1,12 @@
+using System;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
 namespace Database_Info_Transfer
 {
-
     public class info_transfer
     {
+
         //methods of updating information
 
 
@@ -42,13 +43,14 @@ namespace Database_Info_Transfer
                     {
 
                         // Create and set the parameters values 
-                        cmd.Parameters.Add("1", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("15504", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("542101", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("524653", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("43523.25", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("4856251", SqlDbType.NVarChar);
-                        cmd.Parameters.Add("'2017-06-13'", SqlDbType.Date);
+                        // The right hand side will be the variable names
+                        cmd.Parameters.Add("@UID", SqlDbType.NVarChar).value = "1";
+                        cmd.Parameters.Add("Address", SqlDbType.NVarChar).value = "15504";
+                        cmd.Parameters.Add("Perimeter", SqlDbType.NVarChar).value = "542101";
+                        cmd.Parameters.Add("Area", SqlDbType.NVarChar).value = "524653";
+                        cmd.Parameters.Add("Center_Point_X", SqlDbType.NVarChar).value = "43523.25";
+                        cmd.Parameters.Add("Center_Point_Y", SqlDbType.NVarChar).value = "4856251";
+                        cmd.Parameters.Add("Date_Requested", SqlDbType.Date).value = "'2017-06-13'";
 
                         // Let's ask the db to execute the query
                         int rowsAdded = cmd.ExecuteNonQuery();

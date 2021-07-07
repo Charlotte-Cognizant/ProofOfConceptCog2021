@@ -13,6 +13,5 @@ namespace API.Entities
 
         public string city {get; set;}
 
-
     }
 }
