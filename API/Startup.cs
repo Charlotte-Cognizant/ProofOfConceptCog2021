@@ -30,6 +30,8 @@ namespace API
         {
             services.AddDbContext<DataContext>(options =>
             {
+                //This whle thing lets you connect your database. I am sure other options have different connect functions. Using this you can connect external DBs as
+                //The database context in the api.
                 //internal option is the connection  to database
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
 
@@ -55,13 +57,16 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            //99% sure this forms a secure connection to the front end of our project (API and client essentially)
+            //The UseCors is a secure connection and if you change the front end information you will need to update this
+            //You can also add more connections instead of changing the existing one.
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                //This function takes all of the controllers and maps them using the controller mapping rules as layed out by the route parameter
                 endpoints.MapControllers();
             });
         }

@@ -1,5 +1,6 @@
 namespace API.Entities
 {
+    //Registered user username and password. Not very useful atm but may eventually become useful. 
     public class RegUser
     {
         public int ID { get; set; }    
@@ -10,8 +11,6 @@ namespace API.Entities
 
     
     }
-
-//user needs to be able to access database but only to make a pull request. On the database end we check if we have, if not access via api and then return address from db. 
 
 
 
