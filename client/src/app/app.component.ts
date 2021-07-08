@@ -1,4 +1,6 @@
+import { url } from '@angular-devkit/schematics';
 import { HttpClient } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { EventEmitter, OnInit, Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -35,7 +37,8 @@ export class AppComponent implements OnInit{
   zip='';
   city = '';
   state ='';
-  
+  queryString:any;
+  geocodeJson:any;
   //Null function to set address value, pretty sure this is from an old form
   setNullValue(){
     this.addressControl.setValue("")
@@ -56,13 +59,9 @@ export class AppComponent implements OnInit{
     this.state = stateStrng?.value
   }
 
-  updateMap(){
-    //Forward geocodes the inputs and generates a map
-    //This is going to make a call to the mapbox api not our own. That api will then find the location details.
-
-  }
+ 
   setAddressValue(){
-    
+    console.error("ping")
   //Here is where a data operation occurs where we make an api msg to our geocoding tool.
 
 
@@ -100,6 +99,23 @@ submitAddress(){
     console.log("attempted Post");
   })
 }
+mapUpdate(){
+  //Set up information for our initial api call to mapbox
+  
+  const addressString =encodeURIComponent(this.address)
+  console.error(addressString)
+  const zipString = encodeURIComponent(this.zip)
+  const cityString = encodeURIComponent(this.city)
+  const stateString = encodeURIComponent(this.state)
+  this.queryString = ("http://open.mapquest.com/geocoding/v1/"+addressString);
+  //This is the important object for mapdata and coding. Database could store only this ang generate map
+  const locationOBJ = this.http.get<any>(this.queryString).subscribe(data=>
+    this.geocodeJson =data
+    )
+  console.error(this.geocodeJson.LatLng)
+  //Forward geocodes the inputs and generates a map
+  //This is going to make a call to the mapbox api not our own. That api will then find the location details.
 
+}
 
 }

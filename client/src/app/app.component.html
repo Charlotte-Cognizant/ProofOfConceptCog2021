@@ -2,6 +2,7 @@
 <h1>{{title}}
 </h1>
 <head>
+<script src="app.component.ts"></script>
 </head>
 <body>
 <div>
@@ -20,12 +21,11 @@
         Submit the address
     </button>
     </form>
-<ul>
-<li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
-</ul>
-<button type="button"> 
-    Generate map with new address
-</button>
+    <div>
+    <button (click)="mapUpdate()"> 
+     Generate map with new address  
+    </button>
+    </div>
 </div>
 <div id='map' style='width:2000px; height:1000px;'></div>
 </body>
