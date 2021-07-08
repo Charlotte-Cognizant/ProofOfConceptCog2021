@@ -5,16 +5,27 @@
 </head>
 <body>
 <div>
-    <form>
-    <button (click)= "setAddressValue()">Set the address!</button>
-    <button (click)="submitAddress()">Submit post request</button>
-    Address : <input type ="text"
-    [formControl] = "addressControl"
-    [(ngModel)] = 'address'>  
+    <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
+        Address<input id ="addressI" type = 'text' formControlName="address">
+    <div>
+        Zip<input id='zipI' type= 'number' formControlName='zip'>
+    </div>
+    <div>
+        City<input id='cityI' type= 'text' formControlName='city'>
+    </div>
+    <div>
+        State<input id='stateI' type= 'text' formControlName='state'>
+    </div>
+    <button type = "submit">
+        Submit the address
+    </button>
     </form>
 <ul>
 <li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
 </ul>
+<button type="button"> 
+    Generate map with new address
+</button>
 </div>
 <div id='map' style='width:2000px; height:1000px;'></div>
 </body>
