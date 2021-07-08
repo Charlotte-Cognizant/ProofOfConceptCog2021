@@ -21,11 +21,10 @@ namespace API.Entities
         public System.DateTime Date_Accessed { get; set; }
         
         //Received the image hopefully through bytes
-        public string imageByte {get;set; }
+        public byte[] imageByte {get;set; }
 
         //Creates the image itself and has the image of the specific byte to then store into database
-        public ImageClass image = new ImageClass();
-        image.imageToByte = imageByte;
+
 
         
     }
