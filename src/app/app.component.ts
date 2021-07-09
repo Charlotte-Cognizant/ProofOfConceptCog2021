@@ -109,17 +109,18 @@ addressDataPost(){
   const url = 'https://localhost:5001/api/user/AdrPost';
 
   const data = {
-    Address:this.address,
-    City:this.city,
-    State:this.state,
-    Zip:this.zip
+    "Address":this.address,
+    "City":this.city,
+    "State":this.state,
+    "Zip":this.zip.toString()
   }
   //request option json object
   const options = {
-    method:'POST',
+    method:"POST",
     body:JSON.stringify(data),
     headers:{
-      'Content-type' : 'application/json; charset=utf-8'
+      "Accept": "application/json",
+      "Content-type": "application/json; charset=utf-8"
     }
   }
   fetch(url,options).then(res=>res.json()).then(res=>console.log(res));
@@ -146,8 +147,7 @@ submitAddress(){
   //this.getUsers();
 }
 mapUpdate(){
-  //Set up information for our initial api call to mapbox
-  
+  //Set up information for our initial api call to mapbox 
   const addressString =encodeURIComponent(this.address)
   const zipString = encodeURIComponent(this.zip)
   const cityString = encodeURIComponent(this.city)
