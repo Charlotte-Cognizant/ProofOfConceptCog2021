@@ -23,18 +23,18 @@
     <button type = "submit">
         Submit the address
     </button>
-    </form>
-    <div>
     <button (click)="mapUpdate()"> 
-     Generate map with new address  
-    </button>
-    <button (click) = "addressDataPost()">
-        Test addressDatapost
-    </button>
-    <ul>
-        <li *ngFor = 'let user of users'> {{user.id}} -<s></s> {{user.address}} -<s></s> {{user.city}} - <s></s>{{user.state}}</li>
-    </ul>
-    </div>
+        Generate map with new address  
+       </button>
+       <button (click) = "addressDataPost()">
+           Test addressDatapost
+       </button>
+    </form>
+    <router-outlet>
+    <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li>
+    <li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li>
+    </router-outlet>
 </div>
 <div id='map' style='width:2000px; height:1000px;'></div>
 </body>
