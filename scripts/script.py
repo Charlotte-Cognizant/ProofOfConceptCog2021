@@ -3,6 +3,9 @@ import os
 import sys
 import json
 import math
+from area import area
+from shapely.geometry import shape
+from shapely.geometry import LineString
 
 #create building directory if doesn't already exist
 if not os.path.exists("buildings"):
@@ -23,7 +26,7 @@ gdf = ox.geometries_from_address(address, tags, dist)
 #project gdf to UTM for which address centroid lies
 gdf_proj = ox.project_gdf(gdf)
 
-#filepath to save geopackage
+#filepath to save building footprint
 fp = f"./buildings/{address}"
 
 gdf_save = gdf.applymap(lambda x: str(x) if isinstance(x, list) else x)
@@ -38,6 +41,44 @@ def filter_buildings(input_json, num, name):
     gj['features'] = [add for add in gj['features'] if (add['properties']['addr:housenumber'] == num and add['properties']['addr:street'] == name)]
     with open(input_json, 'w') as f:
         json.dump(gj, f)
+
+#add centroid, perimeter, area to json
+def calc_geoms(input_json):
+    with open(input_json) as jsonfile:
+        geoJson = json.load(jsonfile)
+
+
+    #calculate total area of buildings
+    i = 0
+    area_m2 = 0
+    for f in geoJson['features']:
+        area_m2 += area(geoJson['features'][i]['geometry'])
+        i += 1
+
+
+    #calculate centroid of buidings
+    features = geoJson["features"]
+    cents = []
+    for feature in features:
+        s = shape(feature["geometry"])
+        cents.append(s.centroid)
+
+    if len(cents) > 1:
+        centroid = LineString(cents).centroid
+    else:
+        centroid = cents[0]
+
+    centroid_lat = centroid.y
+    centroid_lon = centroid.x
+
+    #add area and centroid to geoJSON
+    for feat in features:
+        feat['properties']['total_area'] = area_m2
+        feat['properties']['centroid_lat'] = centroid_lat
+        feat['properties']['centroid_lon'] = centroid_lon
+
+    with open(input_json, 'w') as f:
+        json.dump(geoJson, f)
 
 
 #format address to be used with OSM
@@ -114,6 +155,39 @@ if ff == "geopackage":
 if ff == "geojson":
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.json", driver="GeoJSON")
     filter_buildings(f"{fp}.json",add_num, add_name_full)
+    calc_geoms(f"{fp}.json")
 if ff == "both":
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.json", driver="GeoJSON")
+
+gj_path = f"{fp}.json"
+
+
+'''
+#retrieve static map image using mapbox API
+
+#mapbox token
+api_key = "pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IwcDk2YzgwOWg4MnV0YzV3d3ltOTZtIn0.eORxFKwUqyPQUmgXTzEP7w"
+api_auth = "set MAPBOX_ACCESS_TOKEN=" + api_key
+
+#open geoJSON
+with open(gj_path) as jsonfile:
+    geoJson = json.load(jsonfile)
+
+#address coordinates
+long = geoJson['features'][0]['geometry']['coordinates'][0][0][0]
+lat = geoJson['features'][0]['geometry']['coordinates'][0][0][1]
+
+#mapbox parameters
+zoom = '15'
+size = '800 800'
+basemap = 'mapbox.satellite'
+out_image = f"./imagery/{address}.png"
+
+#api request string
+rq = f"mapbox staticmap --features {gj_path} {basemap} {out_image}"
+
+#make requests
+os.system(api_auth)
+os.system(rq)
+'''
