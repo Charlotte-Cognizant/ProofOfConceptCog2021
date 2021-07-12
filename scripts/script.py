@@ -80,6 +80,34 @@ def calc_geoms(input_json):
     with open(input_json, 'w') as f:
         json.dump(geoJson, f)
 
+#retrieve static map image using mapbox API
+def mapbox_request(input_json):
+    #mapbox token
+    api_key = "pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IwcDk2YzgwOWg4MnV0YzV3d3ltOTZtIn0.eORxFKwUqyPQUmgXTzEP7w"
+    api_auth = "set MAPBOX_ACCESS_TOKEN=" + api_key
+
+    #open geoJSON
+    with open(input_json) as jsonfile:
+        geoJson = json.load(jsonfile)
+
+    #address coordinates
+    lon = geoJson['features'][0]['properties']['centroid_lon']
+    lat = geoJson['features'][0]['properties']['centroid_lat']
+
+    #mapbox parameters
+    zoom = '15'
+    size = '800 800'
+    basemap = 'mapbox.satellite'
+    out_image = f"./imagery/{address}.png"
+
+    #api request string
+    rq = f"mapbox staticmap --features {input_json} {basemap} {out_image}"
+
+    #make requests
+    os.system(api_auth)
+    os.system(rq)
+
+
 
 #format address to be used with OSM
 add_split = address.split(",")
@@ -159,35 +187,3 @@ if ff == "geojson":
 if ff == "both":
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.json", driver="GeoJSON")
-
-gj_path = f"{fp}.json"
-
-
-'''
-#retrieve static map image using mapbox API
-
-#mapbox token
-api_key = "pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IwcDk2YzgwOWg4MnV0YzV3d3ltOTZtIn0.eORxFKwUqyPQUmgXTzEP7w"
-api_auth = "set MAPBOX_ACCESS_TOKEN=" + api_key
-
-#open geoJSON
-with open(gj_path) as jsonfile:
-    geoJson = json.load(jsonfile)
-
-#address coordinates
-long = geoJson['features'][0]['geometry']['coordinates'][0][0][0]
-lat = geoJson['features'][0]['geometry']['coordinates'][0][0][1]
-
-#mapbox parameters
-zoom = '15'
-size = '800 800'
-basemap = 'mapbox.satellite'
-out_image = f"./imagery/{address}.png"
-
-#api request string
-rq = f"mapbox staticmap --features {gj_path} {basemap} {out_image}"
-
-#make requests
-os.system(api_auth)
-os.system(rq)
-'''
