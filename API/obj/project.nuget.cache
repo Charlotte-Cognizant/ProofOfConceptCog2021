@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8UkL0WJ94I+PR6TFEuXokOy4cpwF8ya2Fgb4Ukcsk9jWdyzEQydfQkJtZe8IDA6T7PrEMvq3N0+SfiEObdgSgQ==",
+  "dgSpecHash": "QY2E3qHILhNbb2/dlP5Ts4Yb/Lsi/bcQJPqwjV/CF4GpmDIqjRIiCkQMA0E87xOtM0Nvlm2Gbk+EZ8YOuY0rbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jroux\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\jroux\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
     "C:\\Users\\jroux\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\jroux\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.7\\microsoft.data.sqlite.core.5.0.7.nupkg.sha512",
     "C:\\Users\\jroux\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

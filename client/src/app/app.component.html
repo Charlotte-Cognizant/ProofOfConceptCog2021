@@ -2,6 +2,9 @@
 <h1>{{title}}
 </h1>
 <head>
+<script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
+</script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
 <script src="app.component.ts"></script>
 </head>
 <body>
@@ -25,6 +28,12 @@
     <button (click)="mapUpdate()"> 
      Generate map with new address  
     </button>
+    <button (click) = "addressDataPost()">
+        Test addressDatapost
+    </button>
+    <ul>
+        <li *ngFor = 'let user of users'> {{user.id}} -<s></s> {{user.address}} -<s></s> {{user.city}} - <s></s>{{user.state}}</li>
+    </ul>
     </div>
 </div>
 <div id='map' style='width:2000px; height:1000px;'></div>

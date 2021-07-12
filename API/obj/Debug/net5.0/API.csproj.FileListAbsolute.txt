@@ -58,3 +58,4 @@ C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\Microsoft.EntityFramework
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.dll
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.pdb
+C:\Users\jroux\Documents\workcode\api\bin\Debug\net5.0\Json.Net.dll
