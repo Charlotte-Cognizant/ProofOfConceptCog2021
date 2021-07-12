@@ -1,6 +1,32 @@
+<h1>{{title}}
+</h1>
+<head>
+<script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
+</script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+<script src="app.component.ts"></script>
+</head>
 <body>
-<h1>Home Header</h1>
-<button>
-    If seen, home page html is rendering
-</button>
-</body>
+<div>
+    <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
+        Address<input id ="addressI" type = 'text' formControlName="address">
+    <div>
+        Zip<input id='zipI' type= 'number' formControlName='zip'>
+    </div>
+    <div>
+        City<input id='cityI' type= 'text' formControlName='city'>
+    </div>
+    <div>
+        State<input id='stateI' type= 'text' formControlName='state'>
+    </div>
+    <button type = "submit">
+        Submit the address
+    </button>
+    <button (click)="mapUpdate()"> 
+        Generate map with new address  
+       </button>
+       <button (click) = "addressDataPost()">
+           Test addressDatapost
+       </button>
+    </form>
+<div id='map' style='width:2000px; height:1000px;'></div>
