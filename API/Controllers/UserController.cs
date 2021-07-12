@@ -9,6 +9,9 @@ using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
+
+
 
 namespace API.Controllers
 {
@@ -54,6 +57,41 @@ namespace API.Controllers
             return searchAddress;
         }
 
+        public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal perimeter, Decimal area, double center_Point_X, double center_Point_Y, byte[] image)
+        {
+            
+            var spatialinfo = new SpatialInfo {
+                Perimeter = perimeter,
+                Area = area,
+                Center_Point_X = center_Point_X,
+                Center_Point_Y = center_Point_Y,
+                imageByte = image,
+
+            };
+            _context.spatial.Add(spatialinfo);
+            await _context.SaveChangesAsync();
+
+            return spatialinfo;
+        }
+
+        public byte[] ImagetoByte (string imagePath)
+        {
+            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
+            byte[] imageByteArray = new byte[filestream.Length];
+
+            filestream.Read(imageByteArray, 0, imageByteArray.Length);
+
+
+            return imageByteArray;
+        }
+
+        public Image BytetoImage(byte [] imageArray)
+        {
+            using (MemoryStream ms = new MemoryStream(imageArray))
+            {
+                return Image.FromStream(ms);
+            }
+        } 
 
         private void runPythonScript(string cmd, string args){
             ProcessStartInfo start = new ProcessStartInfo();

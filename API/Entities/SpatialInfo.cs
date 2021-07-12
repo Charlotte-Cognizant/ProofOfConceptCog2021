@@ -23,9 +23,6 @@ namespace API.Entities
         //Received the image hopefully through bytes
         public byte[] imageByte {get;set; }
 
-        //Creates the image itself and has the image of the specific byte to then store into database
-
-
         
     }
 
