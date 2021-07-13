@@ -15,7 +15,7 @@ import * as L from 'leaflet';
 })
 
 //I am less familiar with the frontend at the moment but this links up and is displayed by the information in the template url.
-//
+//https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 export class AppComponent implements OnInit{
   
  // or "const mapboxgl = require('mapbox-gl');"
