@@ -195,7 +195,7 @@ if add_name_suffix == "Wy":
 
 add_name_full = add_name_prefix + " " + add_name_suffix
 
-geojson_fn = f"{fp}.json".replace(" ", "").replace(",", "")
+geojson_fn = f"{fp}.json".replace(" ", "").replace(",", "").lower()
 
 #save file as indicated format
 if ff == "geopackage":
