@@ -2,13 +2,17 @@ Instructions for insrtalling OSMnx and documentation: https://osmnx.readthedocs.
 
 Enter any valid address string as first cmd argument. 
 Enter desired format as second argument ("both" or "geojson" or "geopackage").
-Output will be generated in ./buildings.
+Output geojson will be generated in ./buildings.
+Output image will be generated in ./imagery.
+
+GeoJSON format will include only the buildings that have the exact address. Geopackage will have all buildings within 500 meters of address centroid.
 
 RUN EXAMPLE: 
-python script.py "77 Excelsior Ave, Saratoga Springs, NY 12866" "both"
+python script.py "77 Excelsior Ave, Saratoga Springs, NY 12866" geojson
 
-
-*I have not figured out a way to run outside of Anaconda Prompt. Not sure if that's good or bad yet, just a heads up.*
+OUTPUT EXAMPLE:
+./buildings/77excelsioravesaratogaspringsny12866.json
+./imagery/77excelsioravesaratogaspringsny12866.png
 
 
 Citations:

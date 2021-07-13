@@ -18,5 +18,6 @@ namespace API.Data
         
         public DbSet<AddressData> adress{get; set;}
 
+        public DbSet<SpatialInfo> spatial { get;set;}
     }
 }

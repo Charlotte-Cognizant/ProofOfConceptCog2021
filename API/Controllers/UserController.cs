@@ -13,7 +13,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using static API.DTO.addressData;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using API.DTO;
+=======
+using System.Drawing;
+using Newtonsoft.Json;
+using System.Net.Http;
+>>>>>>> origin/main
 
 namespace API.Controllers
 {
@@ -72,6 +78,57 @@ namespace API.Controllers
             return searchAddress;
         }
 
+        public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal area, double Center_Lat, double Center_Long, byte[] image)
+        {
+            var spatialinfo = new SpatialInfo {
+                Area = area,
+                center_Lat = Center_Lat,
+                center_Long = Center_Long,
+                imageByte = image,
+
+            };
+            _context.spatial.Add(spatialinfo);
+            await _context.SaveChangesAsync();
+
+            return spatialinfo;
+        }
+
+        public byte[] ImagetoByte (string imagePath)
+        {
+            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
+            byte[] imageByteArray = new byte[filestream.Length];
+
+            filestream.Read(imageByteArray, 0, imageByteArray.Length);
+
+
+            return imageByteArray;
+        }
+
+        public Image BytetoImage(byte[] imageArray)
+        {
+            using (MemoryStream ms = new MemoryStream(imageArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+        [HttpGet]
+        public static async Task<object> jsonGet()
+        {
+            try
+            {
+                using(HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync("http://localhost.com/5001/0");
+
+                }
+            }
+            catch
+            {
+
+            }
+            return null;
+        }
 
 
 

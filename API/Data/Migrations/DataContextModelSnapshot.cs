@@ -35,7 +35,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("adress");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("API.Entities.RegUser", b =>
