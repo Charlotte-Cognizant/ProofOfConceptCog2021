@@ -1,8 +1,12 @@
 
-
-    <router-outlet>
-    <li><a routerLink="home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li>
-    <li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li>
+<div class="one">
+    <table  border:1px>
+    <tr list-style-type ="none">
+    <router-outlet rowspan="3"> 
+    <th scope = "row" ><li><a routerLink="home" routerLinkActive="active">Home</a></li></th>
+    <th scope = "row"><li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li></th>
+    <th scope = "row"><li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li></th>
     </router-outlet>
-
+    </tr>
+    </table>
+</div>

@@ -8,11 +8,19 @@ import { FormControl, FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 import {Map} from 'mapbox-gl';
 import * as L from 'leaflet';
-
+// sources : 
+//https://stackoverflow.com/questions/13204002/align-form-elements-in-css https://stackoverflow.com/questions/4221263/center-form-submit-buttons-html-css
+//
+//
+//
+//
+//
+//
 @Component(
 
     {selector: 'home-route',
-    templateUrl: './home.component.html'
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 
 export class HomeComponent implements OnInit{

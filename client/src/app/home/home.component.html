@@ -9,24 +9,24 @@
 <body>
 <div>
     <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
-        Address<input id ="addressI" type = 'text' formControlName="address">
+    <input id ="addressI" type = 'text' formControlName="address" placeholder="Address">
+    <input id='zipI' type= 'number' formControlName='zip' placeholder="Zip">
     <div>
-        Zip<input id='zipI' type= 'number' formControlName='zip'>
+    <input id='cityI' type= 'text' formControlName='city' placeholder = "City">   
+    <input id='stateI' type= 'text' formControlName='state' placeholder = "State">
     </div>
-    <div>
-        City<input id='cityI' type= 'text' formControlName='city'>
-    </div>
-    <div>
-        State<input id='stateI' type= 'text' formControlName='state'>
-    </div>
+   <div> 
     <button type = "submit">
-        Submit the address
+    Submit the address
     </button>
-    <button (click)="mapUpdate()"> 
-        Generate map with new address  
-       </button>
-       <button (click) = "addressDataPost()">
-           Test addressDatapost
-       </button>
+    <button (click) = "addressDataPost()">
+    Test addressDatapost
+    </button>
+    </div>
     </form>
-<div id='map' style='width:2000px; height:1000px;'></div>
+    <button (click)="mapUpdate()"> 
+    Generate map with new address  
+    </button>
+
+
+    <div id='map' style='width:2000px; height:1000px;'></div>
