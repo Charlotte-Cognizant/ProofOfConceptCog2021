@@ -11,6 +11,10 @@ from shapely.geometry import LineString
 if not os.path.exists("buildings"):
     os.mkdir("buildings")
 
+#create imagery directory if doesn't already exist
+if not os.path.exists("imagery"):
+    os.mkdir("imagery")
+
 #address recieved from web api
 address = str(sys.argv[1])
 
@@ -18,7 +22,7 @@ address = str(sys.argv[1])
 tags = {"building": True}
 
 #distance buffer from address in meters
-dist = 1000
+dist = 500
 
 #returns geopandas.GeoDataFrame
 gdf = ox.geometries_from_address(address, tags, dist)
@@ -80,11 +84,25 @@ def calc_geoms(input_json):
     with open(input_json, 'w') as f:
         json.dump(geoJson, f)
 
+#set style of footprints
+def set_style(input_json):
+    #open geoJSON
+    with open(input_json) as jsonfile:
+        geoJson = json.load(jsonfile)
+    #set style
+    for f in geoJson['features']:
+        f['properties']['stroke'] = '#7fff00'
+    #write geojson
+    with open(input_json, 'w') as f:
+        json.dump(geoJson, f)
+
+
 #retrieve static map image using mapbox API
 def mapbox_request(input_json):
     #mapbox token
-    api_key = "pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IwcDk2YzgwOWg4MnV0YzV3d3ltOTZtIn0.eORxFKwUqyPQUmgXTzEP7w"
+    api_key = "pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg"
     api_auth = "set MAPBOX_ACCESS_TOKEN=" + api_key
+    api_init = "mapbox ..."
 
     #open geoJSON
     with open(input_json) as jsonfile:
@@ -98,13 +116,14 @@ def mapbox_request(input_json):
     zoom = '15'
     size = '800 800'
     basemap = 'mapbox.satellite'
-    out_image = f"./imagery/{address}.png"
+    out_image = f"./imagery/{input_json[12:-5]}.png"
 
     #api request string
     rq = f"mapbox staticmap --features {input_json} {basemap} {out_image}"
 
     #make requests
     os.system(api_auth)
+    os.system(api_init)
     os.system(rq)
 
 
@@ -176,14 +195,17 @@ if add_name_suffix == "Wy":
 
 add_name_full = add_name_prefix + " " + add_name_suffix
 
+geojson_fn = f"{fp}.json".replace(" ", "").replace(",", "").lower()
 
 #save file as indicated format
 if ff == "geopackage":
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
 if ff == "geojson":
-    gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.json", driver="GeoJSON")
-    filter_buildings(f"{fp}.json",add_num, add_name_full)
-    calc_geoms(f"{fp}.json")
+    gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
+    filter_buildings(geojson_fn, add_num, add_name_full)
+    calc_geoms(geojson_fn)
+    set_style(geojson_fn)
+    mapbox_request(geojson_fn)
 if ff == "both":
     gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
-    gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.json", driver="GeoJSON")
+    gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
