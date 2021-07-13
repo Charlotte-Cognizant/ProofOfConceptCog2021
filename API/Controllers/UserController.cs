@@ -59,7 +59,6 @@ namespace API.Controllers
 
         public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal perimeter, Decimal area, double center_Point_X, double center_Point_Y, byte[] image)
         {
-            
             var spatialinfo = new SpatialInfo {
                 Perimeter = perimeter,
                 Area = area,

@@ -14,17 +14,19 @@ namespace API.Entities
 
         public System.Decimal Area { get; set; }
 
-        public System.Double Center_Point_X { get; set; }
+        public System.Double Latitude { get; set; }
 
-        public System.Double Center_Point_Y { get; set; }
+        public System.Double Longitude { get; set; }
 
         public System.DateTime Date_Accessed { get; set; }
         
         //Received the image hopefully through bytes
         public byte[] imageByte {get;set; }
-
         
     }
+    //Json Lite loadable SQLite extension
+    // One big Json!!
+    // Delete Json from the project director to clear up space
 
 
 }
