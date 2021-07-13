@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj": {}
+    "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj": {
+    "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\obj\\",
+        "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\api\\API.csproj",
+        "packagesPath": "C:\\Users\\jroux\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jroux\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +44,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
