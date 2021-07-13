@@ -3,24 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using static API.DTO.addressData;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using API.DTO;
-=======
-using System.Drawing;
-using Newtonsoft.Json;
 using System.Net.Http;
->>>>>>> origin/main
-
+using static System.Net.Mime.MediaTypeNames;
 namespace API.Controllers
 {
 
@@ -104,13 +95,13 @@ namespace API.Controllers
             return imageByteArray;
         }
 
-        public Image BytetoImage(byte[] imageArray)
-        {
-            using (MemoryStream ms = new MemoryStream(imageArray))
-            {
-                return Image.FromStream(ms);
-            }
-        }
+        // public Image BytetoImage(byte[] imageArray)
+        // {
+        //     using (MemoryStream ms = new MemoryStream(imageArray))
+        //     {
+        //         return Image.FromStream(ms);
+        //     }
+        // }
 
         [HttpGet]
         public static async Task<object> jsonGet()
