@@ -1,40 +1,8 @@
 
-<h1>{{title}}
-</h1>
-<head>
-<script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
-</script>
-<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-<script src="app.component.ts"></script>
-</head>
-<body>
-<div>
-    <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
-        Address<input id ="addressI" type = 'text' formControlName="address">
-    <div>
-        Zip<input id='zipI' type= 'number' formControlName='zip'>
-    </div>
-    <div>
-        City<input id='cityI' type= 'text' formControlName='city'>
-    </div>
-    <div>
-        State<input id='stateI' type= 'text' formControlName='state'>
-    </div>
-    <button type = "submit">
-        Submit the address
-    </button>
-    </form>
-    <div>
-    <button (click)="mapUpdate()"> 
-     Generate map with new address  
-    </button>
-    <button (click) = "addressDataPost()">
-        Test addressDatapost
-    </button>
-    <ul>
-        <li *ngFor = 'let user of users'> {{user.id}} -<s></s> {{user.address}} -<s></s> {{user.city}} - <s></s>{{user.state}}</li>
-    </ul>
-    </div>
-</div>
-<div id='map' style='width:2000px; height:1000px;'></div>
-</body>
+
+    <router-outlet>
+    <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li>
+    <li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li>
+    </router-outlet>
+
