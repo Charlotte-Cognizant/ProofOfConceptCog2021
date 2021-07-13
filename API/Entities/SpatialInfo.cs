@@ -10,13 +10,11 @@ namespace API.Entities
         //auto incremented id should match accordingly to the AddressData Entity
         public int ID { get; set; }
 
-        public System.Decimal Perimeter { get; set; }
-
         public System.Decimal Area { get; set; }
 
-        public System.Double Latitude { get; set; }
+        public System.Double center_Lat { get; set; }
 
-        public System.Double Longitude { get; set; }
+        public System.Double center_Long { get; set; }
 
         public System.DateTime Date_Accessed { get; set; }
         

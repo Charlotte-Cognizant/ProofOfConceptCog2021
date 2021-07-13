@@ -10,8 +10,8 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing;
-
-
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace API.Controllers
 {
@@ -57,13 +57,12 @@ namespace API.Controllers
             return searchAddress;
         }
 
-        public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal perimeter, Decimal area, double center_Point_X, double center_Point_Y, byte[] image)
+        public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal area, double Center_Lat, double Center_Long, byte[] image)
         {
             var spatialinfo = new SpatialInfo {
-                Perimeter = perimeter,
                 Area = area,
-                Center_Point_X = center_Point_X,
-                Center_Point_Y = center_Point_Y,
+                center_Lat = Center_Lat,
+                center_Long = Center_Long,
                 imageByte = image,
 
             };
@@ -84,13 +83,31 @@ namespace API.Controllers
             return imageByteArray;
         }
 
-        public Image BytetoImage(byte [] imageArray)
+        public Image BytetoImage(byte[] imageArray)
         {
             using (MemoryStream ms = new MemoryStream(imageArray))
             {
                 return Image.FromStream(ms);
             }
-        } 
+        }
+
+        [HttpGet]
+        public static async Task<object> jsonGet()
+        {
+            try
+            {
+                using(HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync("http://localhost.com/5001/0");
+
+                }
+            }
+            catch
+            {
+
+            }
+            return null;
+        }
 
         private void runPythonScript(string cmd, string args){
             ProcessStartInfo start = new ProcessStartInfo();
