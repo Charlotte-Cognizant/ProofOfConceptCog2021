@@ -1,0 +1,6 @@
+body{min-width: 1500px;}
+ul{text-align: center;
+list-style: none;
+columns: 4;
+border:1px solid black;
+}

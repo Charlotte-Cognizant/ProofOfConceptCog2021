@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using API.DTO;
 using System.Net.Http;
-using static System.Net.Mime.MediaTypeNames;
+
 namespace API.Controllers
 {
 

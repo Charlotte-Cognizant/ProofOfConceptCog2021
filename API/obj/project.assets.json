@@ -896,8 +896,6 @@
             "rid": "win"
           }
         }
-<<<<<<< HEAD
-=======
       },
       "System.Globalization/4.3.0": {
         "type": "package",
@@ -1649,7 +1647,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
->>>>>>> origin/main
       }
     }
   },
@@ -1670,7 +1667,6 @@
         "logo.png"
       ]
     },
-<<<<<<< HEAD
     "Json.Net/1.0.33": {
       "sha512": "5tE+db6BqhRAvITIVBeRsQorLGshPExfm4FmMRvWWAfs4RxeTbFFj2PIEybwmMW0qR30HKkXDYhq0YkDK2Jtxw==",
       "type": "package",
@@ -1683,9 +1679,6 @@
         "lib/netstandard2.0/Json.Net.dll"
       ]
     },
-    "Microsoft.CSharp/4.7.0": {
-      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
-=======
     "Microsoft.CSharp/4.7.0": {
       "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
@@ -3995,7 +3988,6 @@
     },
     "System.Reflection/4.3.0": {
       "sha512": "KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
->>>>>>> origin/main
       "type": "package",
       "path": "system.reflection/4.3.0",
       "files": [
@@ -5935,34 +5927,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\david\\.nuget\\packages\\": {}
+    "C:\\Users\\jroux\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "c:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+      "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
       "packagesPath": "C:\\Users\\jroux\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jroux\\Documents\\workcode\\API\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
-      "projectName": "API",
-      "projectPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\obj\\",
->>>>>>> origin/main
+      "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\jroux\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
