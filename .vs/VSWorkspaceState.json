@@ -2,9 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\API",
-    "\\API\\Entities",
-    "\\Database Info Transfer"
+    "\\API\\Data",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\app",
+    "\\client\\src\\app\\addressPage",
+    "\\scripts",
+    "\\scripts\\buildings",
+    "\\scripts\\cache"
   ],
-  "SelectedNode": "\\Database Info Transfer\\Info_Transfer.cs",
+  "SelectedNode": "\\API\\Controllers\\UserController.cs",
   "PreviewInSolutionExplorer": false
 }
