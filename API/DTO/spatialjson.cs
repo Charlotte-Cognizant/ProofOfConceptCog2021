@@ -8,6 +8,11 @@ namespace API.DTO
     public class spatialjson
     {
        
+        public int uniqueID {
+            set;
+            get;
+        }
+
             public string area {
                 get;
                 set;
@@ -20,6 +25,11 @@ namespace API.DTO
                 get;
                 set;
             }
+
+        public DateTime date {
+            get;
+            set;
+        }
             //Include all data from address object. TODO after refactoring and commenting 
         }
     }
