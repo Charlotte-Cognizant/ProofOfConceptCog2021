@@ -254,6 +254,11 @@ def main():
         gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
 
+    #open geoJSON
+    with open(geojson_fn) as jsonfile:
+        geoJson = json.load(jsonfile)
+    print (geoJson)
+
 
 
 if __name__ == "__main__":
