@@ -15,6 +15,8 @@ namespace API.Entities
         public System.Double center_Lat { get; set; }
 
         public System.Double center_Long { get; set; }
+
+        public byte[] imagebyte { get; set; }
         
     }
     //Json Lite loadable SQLite extension
