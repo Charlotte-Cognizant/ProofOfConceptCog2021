@@ -9,8 +9,12 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using API.DTO;
+using System.Drawing;
+using Newtonsoft.Json;
 using System.Net.Http;
+using API.DTO;
+using Newtonsoft.Json.Converters;
+using System.Dynamic;
 
 
 namespace API.Controllers
@@ -72,8 +76,10 @@ namespace API.Controllers
 
         public string notAvailError()
         {
-            return ("Sorry, the address number you entered is not available at this time.");
-        }
+            var spatialinfo = new SpatialInfo {
+                Area = area,
+                center_Lat = Center_Lat,
+                center_Long = Center_Long,
 
         public string notFoundError()
         {
@@ -81,51 +87,31 @@ namespace API.Controllers
 
         }
 
-        public string notDetectedError()
+        public byte[] ImagetoByte ()
         {
-            return ("Sorry, we did not detect any buildings at the address entered.");
+            string imagePath = "./imagery/";
+            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
+            byte[] imageByteArray = new byte[filestream.Length];
+
+
+            return imageByteArray;
         }
 
-
-
-        private void runPythonScript(AddressData address)
+        public Image BytetoImage(string uniqueID)
         {
 
-            string address_str = String.Format("{0}, {1}, {2} {3}", address.StreetAddress, address.City, address.State, address.Zip);
-
-            // Set working directory and create process
-            var workingDirectory = "C:/Documents/workcode/scripts";
-            var process = new Process {
-                StartInfo = new ProcessStartInfo {
-                    FileName = "cmd.exe",
-                    RedirectStandardInput = true,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    WorkingDirectory = workingDirectory
-                }
-            };
-            process.Start();
-            // Pass multiple commands to cmd.exe
-            using (var sw = process.StandardInput)
+            using (MemoryStream ms = new MemoryStream(imageArray))
             {
-                if (sw.BaseStream.CanWrite)
-                {
-                    // Vital to activate Anaconda
-                    sw.WriteLine("C:\\Users\\hartc\\anaconda3\\Scripts\\activate.bat");
-                    // Activate ox environment
-                    sw.WriteLine("conda activate ox");
-                    // set environment variables and init mapbox api
-                    sw.WriteLine("set MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg");
-                    sw.WriteLine("mapbox ...");
-                    // run your script. You can also pass in arguments
-                    sw.WriteLine(string.Format("python script.py '{1}' geojson", address_str));
-                }
+                return Image.FromStream(ms);
             }
-            // read multiple output lines
-            while (!process.StandardOutput.EndOfStream)
+        }
+        /*
+        [HttpGet]
+        public static async Task<object> jsonGet()
+        {
+            try
             {
-                var line = process.StandardOutput.ReadLine();
-                if (line == "Sorry, address number not available at this time")
+                using(HttpClient client = new HttpClient())
                 {
                     notAvailError();
                 }
@@ -139,10 +125,9 @@ namespace API.Controllers
                 }
             }
         }
+        */
 
-
-            private void runPythonScript(string cmd, string args)
-        {
+        private void runPythonScript(string cmd, string args){
             ProcessStartInfo start = new ProcessStartInfo();
             start.FileName = "C:/Documents/workcode/scripts";
             start.Arguments = string.Format("{0} {1}", cmd, args);
@@ -153,56 +138,20 @@ namespace API.Controllers
                 using (StreamReader reader = process.StandardOutput)
                 {
                     string result = reader.ReadToEnd();
-                    spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(result);
 
-                    string imagePath = "./imagery/";
-                    FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
-                    byte[] imageByteArray = new byte[filestream.Length];
-                    filestream.Read(imageByteArray, 0, imageByteArray.Length);
-
+                    dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(result, new ExpandoObjectConverter());
+                    
                     var spatialinfo = new SpatialInfo {
-                        ID = spatialholder.uniqueID,
-                        Area = spatialholder.area,
-                        center_Lat = spatialholder.center_lat,
-                        center_Long = spatialholder.center_long,
-                        dateaccessed = spatialholder.date,
-                        imagebyte = imageByteArray,
-                    };
+                        Area = config.area,
+                        center_Lat = config.Center_Lat,
+                        center_Long = config.Center_Long,
 
+                    };
                     _context.spatial.Add(spatialinfo);
                     _context.SaveChangesAsync();
-                    Console.Write(result);
+                    Console.Write (config);
                 }
             }
-
-        }
-
-        /*public async Task<ActionResult<SpatialInfo>> pollSpatial(string area, string Center_Lat, string Center_Long, byte[] image)
-        {
-            var spatialinfo = new SpatialInfo {
-                Area = area,
-                center_Lat = Center_Lat,
-                center_Long = Center_Long,
-                imageByte = image,
-
-            };
-            _context.spatial.Add(spatialinfo);
-            await _context.SaveChangesAsync();
-
-            return spatialinfo;
-        }
-
-        public byte[] ImagetoByte ()
-        {
-            //missing directory ./imagery/
-            string imagePath = "./imagery/";
-            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
-            byte[] imageByteArray = new byte[filestream.Length];
-
-            filestream.Read(imageByteArray, 0, imageByteArray.Length);
-
-
-            return imageByteArray;
         }
 
         // public Image BytetoImage(byte[] imageArray)
@@ -229,5 +178,5 @@ namespace API.Controllers
 
         */
 
-    }  
+    }
 }
