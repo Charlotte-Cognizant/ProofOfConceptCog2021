@@ -35,14 +35,12 @@ def calc_geoms(input_json):
     with open(input_json) as jsonfile:
         geoJson = json.load(jsonfile)
 
-
     #calculate total area of buildings
     i = 0
     area_m2 = 0
     for f in geoJson['features']:
         area_m2 += area(geoJson['features'][i]['geometry'])
         i += 1
-
 
     #calculate centroid of buidings
     features = geoJson["features"]
@@ -80,6 +78,7 @@ def set_style(input_json):
     with open(input_json, 'w') as f:
         json.dump(geoJson, f)
 
+#add mm/dd/yyyy to properties
 def add_date(input_json):
     #open geoJSON
     with open(input_json) as jsonfile:
@@ -119,8 +118,8 @@ def mapbox_request(input_json):
     rq = f"mapbox staticmap --features {input_json} {basemap} {out_image}"
 
     #make requests
-    os.system(api_auth)
-    os.system(api_init)
+    #os.system(api_auth)
+    #os.system(api_init)
     os.system(rq)
 
 
@@ -198,6 +197,7 @@ def format_address(address):
 
 
 def main():
+
     #create building directory if doesn't already exist
     if not os.path.exists("buildings"):
         os.mkdir("buildings")
