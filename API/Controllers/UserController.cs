@@ -116,7 +116,7 @@ namespace API.Controllers
                 using (StreamReader reader = process.StandardOutput){
                     string result = reader.ReadToEnd();
                     spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(result);
-                    
+                    Console.Write("Did this work?")
                     
                     Console.Write (result);
                 }
