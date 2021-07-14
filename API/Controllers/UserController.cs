@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.Net.Http;
+using API.DTO;
+using Newtonsoft.Json.Converters;
+using System.Dynamic;
 
 namespace API.Controllers
 {
@@ -63,7 +66,6 @@ namespace API.Controllers
                 Area = area,
                 center_Lat = Center_Lat,
                 center_Long = Center_Long,
-                imageByte = image,
 
             };
             _context.spatial.Add(spatialinfo);
@@ -72,25 +74,26 @@ namespace API.Controllers
             return spatialinfo;
         }
 
-        public byte[] ImagetoByte (string imagePath)
+        public byte[] ImagetoByte ()
         {
+            string imagePath = "./imagery/";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
 
-
             return imageByteArray;
         }
 
-        public Image BytetoImage(byte[] imageArray)
+        public Image BytetoImage(string uniqueID)
         {
+
             using (MemoryStream ms = new MemoryStream(imageArray))
             {
                 return Image.FromStream(ms);
             }
         }
-
+        /*
         [HttpGet]
         public static async Task<object> jsonGet()
         {
@@ -108,6 +111,7 @@ namespace API.Controllers
             }
             return null;
         }
+        */
 
         private void runPythonScript(string cmd, string args){
             ProcessStartInfo start = new ProcessStartInfo();
@@ -118,7 +122,18 @@ namespace API.Controllers
             using (Process process = Process.Start(start)){
                 using (StreamReader reader = process.StandardOutput){
                     string result = reader.ReadToEnd();
-                    Console.Write (result);
+
+                    dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(result, new ExpandoObjectConverter());
+                    
+                    var spatialinfo = new SpatialInfo {
+                        Area = config.area,
+                        center_Lat = config.Center_Lat,
+                        center_Long = config.Center_Long,
+
+                    };
+                    _context.spatial.Add(spatialinfo);
+                    _context.SaveChangesAsync();
+                    Console.Write (config);
                 }
             }
             

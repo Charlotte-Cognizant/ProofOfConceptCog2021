@@ -15,11 +15,6 @@ namespace API.Entities
         public System.Double center_Lat { get; set; }
 
         public System.Double center_Long { get; set; }
-
-        public System.DateTime Date_Accessed { get; set; }
-        
-        //Received the image hopefully through bytes
-        public byte[] imageByte {get;set; }
         
     }
     //Json Lite loadable SQLite extension

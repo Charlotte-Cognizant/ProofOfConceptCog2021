@@ -58,3 +58,10 @@ C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\Microsoft.EntityFramework
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.dll
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\david\Source\Repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.pdb
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.csproj.AssemblyReference.cache
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.AssemblyInfoInputs.cache
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.AssemblyInfo.cs
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\obj\Debug\net5.0\API.MvcApplicationPartsAssemblyInfo.cache
