@@ -69,7 +69,7 @@ namespace API.Controllers
             return searchAddress;
         }
 
-        public async Task<ActionResult<SpatialInfo>> pollSpatial(Decimal area, double Center_Lat, double Center_Long, byte[] image)
+        public async Task<ActionResult<SpatialInfo>> pollSpatial(string area, string Center_Lat, string Center_Long, byte[] image)
         {
             var spatialinfo = new SpatialInfo {
                 Area = area,
@@ -84,8 +84,10 @@ namespace API.Controllers
             return spatialinfo;
         }
 
-        public byte[] ImagetoByte (string imagePath)
+        public byte[] ImagetoByte ()
         {
+            //missing directory ./imagery/
+            string imagePath = "";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
@@ -103,27 +105,7 @@ namespace API.Controllers
         //     }
         // }
 
-        [HttpGet]
-        public static async Task<object> jsonGet()
-        {
-            try
-            {
-                using(HttpClient client = new HttpClient())
-                {
-                    HttpResponseMessage response = await client.GetAsync("http://localhost.com/5001/0");
-
-                }
-            }
-            catch
-            {
-
-            }
-            return null;
-        }
-
-
-
-
+   
         private void runPythonScript(string cmd, string args){
             ProcessStartInfo start = new ProcessStartInfo();
             start.FileName = "C:/Documents/workcode/scripts";
@@ -133,14 +115,27 @@ namespace API.Controllers
             using (Process process = Process.Start(start)){
                 using (StreamReader reader = process.StandardOutput){
                     string result = reader.ReadToEnd();
+                    spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(result);
+                    
+                    
                     Console.Write (result);
                 }
             }
             
         }
-    //    [HttpPost("_____PLACEHOLDER")]
+        /*//[HttpGet]
+        public async Task<object> jsonGet()
+        {
+            var request = HttpContext.Request;
+            var stream = new StreamReader(request.Body);
+            string results = await stream.ReadToEndAsync();
 
+            Console.WriteLine(results);
+            spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(results);
+        }
+        //    [HttpPost("_____PLACEHOLDER")]
 
+        */
 
     }  
 }
