@@ -3,6 +3,7 @@ import os
 import sys
 import json
 import math
+import datetime
 from area import area
 from shapely.geometry import shape
 from shapely.geometry import LineString
@@ -79,6 +80,19 @@ def set_style(input_json):
     with open(input_json, 'w') as f:
         json.dump(geoJson, f)
 
+def add_date(input_json):
+    #open geoJSON
+    with open(input_json) as jsonfile:
+        geoJson = json.load(jsonfile)
+    #set date
+    current_day = datetime.date.today()
+    formatted_date = datetime.date.strftime(current_day, "%m/%d/%Y")
+
+    for f in geoJson['features']:
+        f['properties']['dateRequested'] = formatted_date
+    #write geojson
+    with open(input_json, 'w') as f:
+        json.dump(geoJson, f)
 
 #retrieve static map image using mapbox API
 def mapbox_request(input_json):
@@ -231,6 +245,7 @@ def main():
         if check_for_buildings(geojson_fn) == True:
             calc_geoms(geojson_fn)
             set_style(geojson_fn)
+            add_date(geojson_fn)
             mapbox_request(geojson_fn)
         else:
             print ("No building detected at given address.")
