@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
@@ -11,12 +10,26 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AddressController: ControllerBase
+    public class addressPageController: ControllerBase
     {
         private readonly DataContext _context;
-        public AddressController(DataContext context){
+        public addressPageController(DataContext context){
             _context = context;
         }
+
+    [HttpGet()]
+    public async Task<ActionResult<IEnumerable<AddressData>>> getAddressList(){
+        return await _context.adress.ToListAsync();
+    }
+    [HttpGet("{id}")]
+    public async Task <ActionResult<AddressData>> getImageAddress(int id)
+    {return await _context.adress.FindAsync(id);}
+    
+    
+    
+    
+    
+    
     
     
     }

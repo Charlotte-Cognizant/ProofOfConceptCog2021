@@ -4,8 +4,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GalleryComponent } from './gallery';
-import { addressComponent } from './addressPage';
+import { GalleryComponent } from './gallery/index';
+import { addressComponent } from './addressPage/index';
+import { HomeComponent } from './home/index';
 
 
 
@@ -13,7 +14,8 @@ import { addressComponent } from './addressPage';
   declarations: [
     AppComponent,
     GalleryComponent,
-    addressComponent
+    addressComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -61,7 +61,6 @@ namespace API
             //The UseCors is a secure connection and if you change the front end information you will need to update this
             //You can also add more connections instead of changing the existing one.
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
