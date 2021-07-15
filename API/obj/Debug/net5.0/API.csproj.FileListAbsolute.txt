@@ -167,3 +167,4 @@ C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\API.pdb
 C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\API.genruntimeconfig.cache
 C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\backupAPI\obj\API - Backup.csproj.nuget.dgspec.json
 C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\backupAPI\obj\project.assets.json
+C:\Users\david\source\repos\ProofOfConceptCog2021\API\bin\Debug\net5.0\backupAPI\obj\Debug\net5.0\project.razor.json

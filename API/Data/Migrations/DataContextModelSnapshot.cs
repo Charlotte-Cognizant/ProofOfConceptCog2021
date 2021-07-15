@@ -39,6 +39,20 @@ namespace API.Data.Migrations
                     b.ToTable("Address");
                 });
 
+            modelBuilder.Entity("API.Entities.Images", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("imagePath")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("imagePaths");
+                });
+
             modelBuilder.Entity("API.Entities.RegUser", b =>
                 {
                     b.Property<int>("ID")
