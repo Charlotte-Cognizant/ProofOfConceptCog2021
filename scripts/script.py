@@ -208,7 +208,7 @@ def main():
 
     #address recieved from web api
     address = str(sys.argv[1])
-
+    print (address)
     # specify that we're retrieving building footprint geometries
     tags = {"building": True}
 
@@ -253,6 +253,12 @@ def main():
     if ff == "both":
         gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
+
+    #open geoJSON
+    #with open(geojson_fn) as jsonfile:
+        
+        #geoJson = json.load(jsonfile)
+    print (address)
 
 
 
