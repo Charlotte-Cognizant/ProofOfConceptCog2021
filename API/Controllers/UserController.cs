@@ -93,17 +93,9 @@ namespace API.Controllers
         {
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
             address_str=address_str+String.Format(" {0}", address.Zip);
-<<<<<<< HEAD
             //Console.Write(address_str);
             // Set working directory and create process
-            var workingDirectory = "C:/Users/jroux/Documents/workcode/scripts";
-=======
-            Console.Write(address_str);
-            // Set working directory and create process
-            var workingDirectory = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts";
-            //var workingDirectory = "C://Users//croux//Documents//workcode//scripts";
-
->>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
+            var workingDirectory = "C:\\Users\\jroux\\Documents\\workcode\\scripts";
             var process = new Process {
                 StartInfo = new ProcessStartInfo {
                     FileName = "cmd.exe",
@@ -121,21 +113,13 @@ namespace API.Controllers
                 if (sw.BaseStream.CanWrite)
                 {
                     // Vital to activate Anaconda
-<<<<<<< HEAD
                     sw.WriteLine("C:\\Users\\jroux\\anaconda3\\Scripts\\activate.bat");
-=======
-                    sw.WriteLine("C:\\Users\\david\\Anaconda3\\Scripts\\activate.bat");
->>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
                     // Activate ox environment
                     sw.WriteLine("conda activate ox");
                     // set environment variables and init mapbox api
                     sw.WriteLine("set MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg");
                     sw.WriteLine("mapbox ...");
                     // run your script. You can also pass in arguments
-<<<<<<< HEAD
-                    Console.Write(string.Format("python script.py \"{0}\" geojson", address_str));
-=======
->>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
                     sw.WriteLine(string.Format("python script.py \"{0}\" geojson", address_str));
                 }
             }
