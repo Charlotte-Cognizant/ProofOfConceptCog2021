@@ -13,6 +13,7 @@ using API.DTO;
 using System.Net.Http;
 using System.Drawing;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace API.Controllers
 {
@@ -149,20 +150,20 @@ namespace API.Controllers
             byte[] Imagebyte = ImagetoByte(address);
             string JsonString = jsonString(address);
 
-            spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(JsonString);
+            var json_obj = JObject.Parse(JsonString);
+            var area = (string) json_obj["features"][0]["properties"]["total_area"];
+            var center_lat = (string)json_obj["features"][0]["properties"]["centroid_lat"];
+            var center_long = (string)json_obj["features"][0]["properties"]["centroid_lon"];
+            var date = (DateTime)json_obj["features"][0]["properties"]["dateRequested"];
+
 
             var spatialinfo = new SpatialInfo {
-                ID = spatialholder.uniqueID,
-                Area = spatialholder.area,
-                center_Lat = spatialholder.center_lat,
-                center_Long = spatialholder.center_long,
-                dateaccessed = spatialholder.date,
+                Area = area,
+                center_Lat = center_lat,
+                center_Long = center_long,
+                dateaccessed = date,
                 imagebyte = Imagebyte,
             };
-
-            Console.WriteLine(spatialholder.area);
-            Console.WriteLine(spatialholder.center_lat);
-            Console.WriteLine(spatialholder.center_long);
 
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
