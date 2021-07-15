@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F43SjSEgbJ5AKwJRwJRlllI6HqZhkJ4ILW7gPhFl9cezZwlZUgIIiw5a2IUdrruIiUbiHpbl8xmtOCPdvnbO8Q==",
+  "dgSpecHash": "COn7JvTTipuitJgIYa7TPZU50AGaK3FpwJJCtdG55j38okvbQujpim2a2qsDUWdkEfSY+JaYCpvNIJ6Qa2JiPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\david\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

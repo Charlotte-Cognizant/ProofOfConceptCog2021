@@ -10,16 +10,15 @@ namespace API.Entities
         //auto incremented id should match accordingly to the AddressData Entity
         public int ID { get; set; }
 
-        public System.Decimal Area { get; set; }
+        public string Area { get; set; }
 
-        public System.Double center_Lat { get; set; }
+        public string center_Lat { get; set; }
 
-        public System.Double center_Long { get; set; }
+        public string center_Long { get; set; }
 
-        public System.DateTime Date_Accessed { get; set; }
-        
-        //Received the image hopefully through bytes
-        public byte[] imageByte {get;set; }
+        public DateTime dateaccessed { get; set; }
+
+        public byte[] imagebyte { get; set; }
         
     }
     //Json Lite loadable SQLite extension

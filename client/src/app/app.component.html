@@ -1,20 +1,12 @@
 
-<h1>{{title}}
-</h1>
-<head>
-</head>
-<body>
-<div>
-    <form>
-    <button (click)= "setAddressValue()">Set the address!</button>
-    <button (click)="submitAddress()">Submit post request</button>
-    Address : <input type ="text"
-    [formControl] = "addressControl"
-    [(ngModel)] = 'address'>  
-    </form>
-<ul>
-<li *ngFor='let user of users'>{{user.id}} - <S></S>{{user.regUserName}}</li>
-</ul>
+<div class="one">
+    <table  border:1px>
+    <tr list-style-type ="none">
+    <router-outlet rowspan="3"> 
+    <th scope = "row" ><li><a routerLink="home" routerLinkActive="active">Home</a></li></th>
+    <th scope = "row"><li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li></th>
+    <th scope = "row"><li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li></th>
+    </router-outlet>
+    </tr>
+    </table>
 </div>
-<div id='map' style='width:2000px; height:1000px;'></div>
-</body>

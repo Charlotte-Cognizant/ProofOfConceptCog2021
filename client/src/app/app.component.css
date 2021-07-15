@@ -1,4 +1,19 @@
+
+table, th , td{
+    
+    border:1px solid black;
+    list-style: none;
+    border-spacing: 50px;
+    border-collapse: collapse;
+    width:20%;
+    text-align:center;
+}
+th{
+    text-align: center;
+}
+
 h1{
     text-align: center;
     font: arial bond;
 }
+
