@@ -92,7 +92,7 @@ namespace API.Controllers
         private void runPythonScript(AddressData address)
         {
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
-            address_str=address_str+String.Format(",{0}", address.Zip);
+            address_str=address_str+String.Format(" {0}", address.Zip);
             Console.Write(address_str);
             // Set working directory and create process
             var workingDirectory = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts";
