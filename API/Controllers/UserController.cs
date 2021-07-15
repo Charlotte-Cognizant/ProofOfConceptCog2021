@@ -120,7 +120,7 @@ namespace API.Controllers
                     sw.WriteLine("conda activate ox");
                     // set environment variables and init mapbox api
                     sw.WriteLine("set MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg");
-                    sw.WriteLine("mapbox ...");
+                    sw.WriteLine("mapbox --access-token pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg");
                     // run your script. You can also pass in arguments
                     sw.WriteLine(string.Format("python script.py \"{0}\" geojson", address_str));
                 }
@@ -134,14 +134,17 @@ namespace API.Controllers
                 if (line == "Sorry, address number not available at this time")
                 {
                     Console.WriteLine(notAvailError());
+                    return;
                 }
                 else if (line == "Address cannot be found.")
                 {
                     Console.WriteLine(notFoundError());
+                    return;
                 }
                 else if (line == "No building detected at given address.")
                 {
                     Console.WriteLine(notDetectedError());
+                    return;
                 }
             }
 
@@ -175,7 +178,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string imagePath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\imagery\\" + no_comma_address + ".png";
+            string imagePath = "C:\\Users\\jroux\\documents\\ProofOfConceptCog2021\\scripts\\imagery\\" + no_comma_address + ".png";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 

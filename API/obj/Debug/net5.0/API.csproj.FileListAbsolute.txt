@@ -165,3 +165,5 @@ C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\API.dll
 C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\API.pdb
 C:\Users\jroux\Documents\workcode\API\obj\Debug\net5.0\API.genruntimeconfig.cache
+C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\backupAPI\obj\API - Backup.csproj.nuget.dgspec.json
+C:\Users\jroux\Documents\workcode\API\bin\Debug\net5.0\backupAPI\obj\project.assets.json

@@ -255,7 +255,7 @@ def main():
     #open geoJSON
     with open(geojson_fn) as jsonfile:
         
-        geoJson = json.load(jsonfile)
+      geoJson = json.load(jsonfile)
     print (address)
 
 
