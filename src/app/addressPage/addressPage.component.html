@@ -1,5 +1,12 @@
-<h1>addressPage</h1>
+
 <head>
     <script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
     </script>
 </head>
+<body>
+    <h1>Address Page Centered Body text</h1>
+    <ul>
+    <li *ngFor='let addr of address'> {{addr.city}} - <S></S>{{addr.zip}}</li>    
+    </ul> 
+    <div id='map' style='width:300px; height:300px;'></div>
+</body>

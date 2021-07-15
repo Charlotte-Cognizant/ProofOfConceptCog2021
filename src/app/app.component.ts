@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 import {Map} from 'mapbox-gl';
-import * as L from 'leaflet';
+//import * as L from 'leaflet';
 
 @Component({
   selector: 'app-root',

@@ -1,17 +1,24 @@
+
 form{
     text-align: justify;
     background-color: gray;
     border-radius: 4px black;
     width:fit-content;
-    align-items:baseline;
+    display:inline-block;
 }
-
+body{
+    text-align: center;
+    align-self: center;
+}
 input{
     display: inline-block;
+    align-self: center;
+    border-radius: 4px solid black;
+    border-collapse: collapse;
 }
 button{
     display:inline-block;
     padding: 4px;
-    text-align:form;
+    text-align:center;
     margin-left: 15px;
 }

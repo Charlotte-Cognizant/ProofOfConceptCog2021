@@ -7,7 +7,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 import {Map} from 'mapbox-gl';
-import * as L from 'leaflet';
+//import * as L from 'leaflet';
 // sources : 
 //https://stackoverflow.com/questions/13204002/align-form-elements-in-css https://stackoverflow.com/questions/4221263/center-form-submit-buttons-html-css
 //
