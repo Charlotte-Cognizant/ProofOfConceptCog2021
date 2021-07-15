@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\jroux\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\jroux\\.nuget\\packages"
-    ]
-  }
-}
