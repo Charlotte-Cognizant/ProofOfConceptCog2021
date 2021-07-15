@@ -3,7 +3,7 @@ import os
 import sys
 import json
 import math
-import datetime
+from datetime import datetime
 from area import area
 from shapely.geometry import shape
 from shapely.geometry import LineString
@@ -83,12 +83,14 @@ def add_date(input_json):
     #open geoJSON
     with open(input_json) as jsonfile:
         geoJson = json.load(jsonfile)
-    #set date
-    current_day = datetime.date.today()
-    formatted_date = datetime.date.strftime(current_day, "%m/%d/%Y")
+
+    now = datetime.now()
+
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%m/%d/%Y %H:%M:%S")
 
     for f in geoJson['features']:
-        f['properties']['dateRequested'] = formatted_date
+        f['properties']['dateRequested'] = dt_string
     #write geojson
     with open(input_json, 'w') as f:
         json.dump(geoJson, f)
@@ -240,9 +242,11 @@ def main():
     if ff == "geopackage":
         gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
     if ff == "geojson":
+        print ("check2")
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
         filter_buildings(geojson_fn, format_address(address)[0], format_address(address)[1])
         if check_for_buildings(geojson_fn) == True:
+            print ("check1")
             calc_geoms(geojson_fn)
             set_style(geojson_fn)
             add_date(geojson_fn)
@@ -256,7 +260,7 @@ def main():
 
     #open geoJSON
     #with open(geojson_fn) as jsonfile:
-        
+
         #geoJson = json.load(jsonfile)
     print (address)
 
