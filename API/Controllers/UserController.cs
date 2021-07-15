@@ -70,6 +70,9 @@ namespace API.Controllers
             _context.Address.Add(searchAddress);
 
             await _context.SaveChangesAsync();
+
+
+
             return searchAddress;
         }
 
@@ -212,8 +215,6 @@ namespace API.Controllers
                 return Image.FromStream(ms);
             }
         }
-
-
 
 
 
