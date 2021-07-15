@@ -2,6 +2,7 @@ namespace API.DTO
 {
     public class addressData
     {
+    
         public string Address{
         get;
         set;

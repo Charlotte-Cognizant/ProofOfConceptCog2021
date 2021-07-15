@@ -101,7 +101,7 @@ namespace API.Controllers
             address_str=address_str+String.Format(" {0}", address.Zip);
             //Console.Write(address_str);
             // Set working directory and create process
-            var workingDirectory = "C:\\Users\\croux\\Documents\\workcode\\scripts";
+            var workingDirectory = "C:\\Users\\jroux\\Documents\\workcode\\scripts";
             var process = new Process {
                 StartInfo = new ProcessStartInfo {
                     FileName = "cmd.exe",
@@ -119,7 +119,7 @@ namespace API.Controllers
                 if (sw.BaseStream.CanWrite)
                 {
                     // Vital to activate Anaconda
-                    sw.WriteLine("C:\\Users\\croux\\anaconda3\\Scripts\\activate.bat");
+                    sw.WriteLine("C:\\Users\\jroux\\anaconda3\\Scripts\\activate.bat");
                     // Activate ox environment
                     sw.WriteLine("conda activate ox");
                     // set environment variables and init mapbox api
@@ -182,7 +182,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string imagePath = "C:\\Users\\croux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
+            string imagePath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
@@ -200,7 +200,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string jsonPath = "C:\\Users\\croux\\documents\\workcode\\scripts\\buildings\\" + no_comma_address + ".json";
+            string jsonPath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\buildings\\" + no_comma_address + ".json";
             using(StreamReader r = new StreamReader(jsonPath)){
                 jsonstringvariable = r.ReadToEnd();
             }

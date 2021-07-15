@@ -22,8 +22,8 @@ namespace API.Controllers
         return await _context.Address.ToListAsync();
     }
     [HttpGet("{id}")]
-    public async Task <ActionResult<AddressData>> getImageAddress(int id)
-    {return await _context.Address.FindAsync(id);}
+    public async Task <ActionResult<SpatialInfo>> getImageAddress(int id)
+    {return await _context.spatial.FindAsync(id);}
     
     
     

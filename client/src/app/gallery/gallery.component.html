@@ -46,16 +46,28 @@
 
 
   </style>
+  <script src="jquery-3.5.1.min.js"></script>
 </head>
+
+<script>
+$(document).ready(function(){
+  var id =0;
+  $("gallery").each(function(index){
+    indivaddr=getaddress(id);
+      $(  this  ).data(indivaddr);
+    });
+});
+
+
+</script>
 <h1>Gallery of Address</h1>
 <body>
   <div class=" container">
     <div class="gallery">
       <!-- Replace the image src with the URL and it is enabled clicking
     either that or have the URL open to a new webpage that includes the details html-->
-
-      <a target="_blank" href="img_5terre.jpg">
-        <img alt="Cinque Terre" width="600" height="400">
+      <a target="_blank" href=indivaddr.imagebyte>
+        <img alt="Data" width="600" height="400">
       </a>
 
       <div class="desc">Add a description of the image here</div>
