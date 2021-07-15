@@ -11,7 +11,7 @@ from shapely.geometry import LineString
 
 #returns false if no buildings detected at address
 def check_for_buildings(input_json):
-    with open(input_json) as jsonfile:
+    with open(input_json,'w+') as jsonfile:
         gj = json.load(jsonfile)
     if len(gj['features']) == 0:
         return False
@@ -20,7 +20,7 @@ def check_for_buildings(input_json):
 
 #filter out json features that do not correspond to the address
 def filter_buildings(input_json, num, name):
-    with open(input_json) as jsonfile:
+    with open(input_json,'w+') as jsonfile:
         gj = json.load(jsonfile)
     try:
         gj['features'] = [add for add in gj['features'] if (add['properties']['addr:housenumber'] == num and add['properties']['addr:street'] == name)]
@@ -32,7 +32,7 @@ def filter_buildings(input_json, num, name):
 
 #add centroid, perimeter, area to json
 def calc_geoms(input_json):
-    with open(input_json) as jsonfile:
+    with open(input_json,"w+") as jsonfile:
         geoJson = json.load(jsonfile)
 
     #calculate total area of buildings
@@ -63,13 +63,13 @@ def calc_geoms(input_json):
         feat['properties']['centroid_lat'] = centroid_lat
         feat['properties']['centroid_lon'] = centroid_lon
 
-    with open(input_json, 'w') as f:
+    with open(input_json, 'w+') as f:
         json.dump(geoJson, f)
 
 #set style of footprints
 def set_style(input_json):
     #open geoJSON
-    with open(input_json) as jsonfile:
+    with open(input_json, 'w+') as jsonfile:
         geoJson = json.load(jsonfile)
     #set style
     for f in geoJson['features']:
@@ -81,7 +81,7 @@ def set_style(input_json):
 #add mm/dd/yyyy to properties
 def add_date(input_json):
     #open geoJSON
-    with open(input_json) as jsonfile:
+    with open(input_json, 'w+') as jsonfile:
         geoJson = json.load(jsonfile)
     #set date
     current_day = datetime.date.today()
@@ -90,7 +90,7 @@ def add_date(input_json):
     for f in geoJson['features']:
         f['properties']['dateRequested'] = formatted_date
     #write geojson
-    with open(input_json, 'w') as f:
+    with open(input_json, 'w+') as f:
         json.dump(geoJson, f)
 
 #retrieve static map image using mapbox API
@@ -101,7 +101,7 @@ def mapbox_request(input_json):
     api_init = "mapbox ..."
 
     #open geoJSON
-    with open(input_json) as jsonfile:
+    with open(input_json,"w+") as jsonfile:
         geoJson = json.load(jsonfile)
 
     #address coordinates
@@ -229,13 +229,11 @@ def main():
     fp = f"./buildings/{address}"
 
     gdf_save = gdf.applymap(lambda x: str(x) if isinstance(x, list) else x)
-
     #file format to save footprints as- "geopackage" or "geojson" or "both"
     ff = str(sys.argv[2])
 
     #file name of geojson
     geojson_fn = f"{fp}.json".replace(" ", "").replace(",", "").lower()
-
     #save file as indicated format
     if ff == "geopackage":
         gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
@@ -255,9 +253,9 @@ def main():
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
 
     #open geoJSON
-    #with open(geojson_fn) as jsonfile:
+    with open(geojson_fn) as jsonfile:
         
-        #geoJson = json.load(jsonfile)
+        geoJson = json.load(jsonfile)
     print (address)
 
 
