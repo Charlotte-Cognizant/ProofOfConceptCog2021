@@ -50,7 +50,6 @@ namespace API.Controllers
         //Data json reading information :https://www.c-sharpcorner.com/article/working-with-json-string-in-C-Sharp/
         public async Task<ActionResult<AddressData>> pollAddress()
         {
-            Console.Write("This is being functioned");
             var request = HttpContext.Request;
             var stream = new StreamReader(request.Body);
             string results = await stream.ReadToEndAsync();
@@ -64,6 +63,8 @@ namespace API.Controllers
                 State = outputObj.State,
                 Zip = outputObj.Zip
             };
+
+            runPythonScript(searchAddress);
 
             _context.adress.Add(searchAddress);
 
@@ -86,8 +87,6 @@ namespace API.Controllers
         {
             return ("Sorry, we did not detect any buildings at the address entered.");
         }
-
-
 
         private void runPythonScript(AddressData address)
         {
@@ -139,9 +138,12 @@ namespace API.Controllers
                     notDetectedError();
                 }
             }
+
+            //David database code here!
+
         }
 
-
+        /*
         private void runPythonScript(string cmd, string args)
         {
             ProcessStartInfo start = new ProcessStartInfo();
@@ -177,6 +179,7 @@ namespace API.Controllers
             }
 
         }
+        */
 
         /*public async Task<ActionResult<SpatialInfo>> pollSpatial(string area, string Center_Lat, string Center_Long, byte[] image)
         {
