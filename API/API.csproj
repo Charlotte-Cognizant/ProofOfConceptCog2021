@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNet.ScriptManager.jQuery" Version="3.6.0" />
     <PackageReference Include="Json.Net" Version="1.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
@@ -17,7 +18,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-	  <PackageReference Include="System.IO.FileSystem" Version="4.3.0"/>
+	  <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
   </ItemGroup>	
 	
 </Project>

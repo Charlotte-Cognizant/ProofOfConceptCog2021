@@ -74,6 +74,9 @@ namespace API.Controllers
             _context.Address.Add(searchAddress);
 
             await _context.SaveChangesAsync();
+
+
+
             return searchAddress;
         }
 
@@ -186,6 +189,10 @@ namespace API.Controllers
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
+            var imagedatabasepath = new Images {
+                imagePath = imagePath,
+            };
+
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
 
             return imageByteArray;
@@ -217,8 +224,6 @@ namespace API.Controllers
                 return Image.FromStream(ms);
             }
         }
-
-
 
 
 

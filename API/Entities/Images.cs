@@ -10,6 +10,6 @@
         //auto incremented id should match accordingly to the AddressData Entity
         public int ID { get; set; }
 
-        public byte[] image { get; set; }
+        public string imagePath { get; set; }
     }
 }

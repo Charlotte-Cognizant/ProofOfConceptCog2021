@@ -17,7 +17,8 @@ export class addressComponent implements OnInit,OnChanges{
     address:any;
     ngOnChanges(){
       this.getAddresss();
-    }
+  }
+
     ngOnInit(){
        this.getAddresss();
       var map = new Map({
@@ -27,19 +28,18 @@ export class addressComponent implements OnInit,OnChanges{
       })
     }
     //gets specific map information and then loads it all up for the viewer.
-getAddresss(){
-     //From our database we subscribe in order to ask for some data, we ask for users => is a Typescript function I dont understand super well.
-     //Basically tho is says the response to our http request api/user as seen when running the backend http request is used in order to get the results. This.users = 
-     //output from API call.
-     this.http.get('https://localhost:5001/api/addressPage').subscribe(response => {
+  getAddresss() {
+    //From our database we subscribe in order to ask for some data, we ask for users => is a Typescript function I dont understand super well.
+    //Basically tho is says the response to our http request api/user as seen when running the backend http request is used in order to get the results. This.users = 
+    //output from API call.
+    this.http.get('https://localhost:5001/api/addressPage').subscribe(response => {
       this.address = response;
-       console.log(this.address);
-     
-     },error => {
-       console.log(error);
-     })
-   }
+      console.log(this.address);
 
+    }, error => {
+      console.log(error);
+    })
+  }
 }
 
 //Going to want to get information from the database as a photo.

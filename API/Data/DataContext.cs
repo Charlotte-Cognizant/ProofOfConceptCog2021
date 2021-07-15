@@ -17,5 +17,7 @@ namespace API.Data
         public DbSet<AddressData> Address{get; set;}
 
         public DbSet<SpatialInfo> spatial { get; set; }
+
+        public DbSet<Images> imagePaths { get; set; }
     }
 }
