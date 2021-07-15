@@ -27,7 +27,7 @@ def filter_buildings(input_json, num, name):
     except KeyError:
         print ("Sorry, address number not available at this time")
         quit()
-    with open(input_json, 'w') as f:
+    with open(input_json,"w+") as f:
         json.dump(gj, f)
 
 #add centroid, perimeter, area to json
@@ -63,7 +63,7 @@ def calc_geoms(input_json):
         feat['properties']['centroid_lat'] = centroid_lat
         feat['properties']['centroid_lon'] = centroid_lon
 
-    with open(input_json, 'w') as f:
+    with open(input_json, 'w+') as f:
         json.dump(geoJson, f)
 
 #set style of footprints
@@ -75,7 +75,7 @@ def set_style(input_json):
     for f in geoJson['features']:
         f['properties']['stroke'] = '#7fff00'
     #write geojson
-    with open(input_json, 'w') as f:
+    with open(input_json,"w+") as f:
         json.dump(geoJson, f)
 
 #add mm/dd/yyyy to properties
@@ -92,7 +92,7 @@ def add_date(input_json):
     for f in geoJson['features']:
         f['properties']['dateRequested'] = dt_string
     #write geojson
-    with open(input_json, 'w') as f:
+    with open(input_json, 'w+') as f:
         json.dump(geoJson, f)
 
 #retrieve static map image using mapbox API
@@ -231,19 +231,18 @@ def main():
     fp = f"./buildings/{address}"
 
     gdf_save = gdf.applymap(lambda x: str(x) if isinstance(x, list) else x)
-
     #file format to save footprints as- "geopackage" or "geojson" or "both"
     ff = str(sys.argv[2])
 
     #file name of geojson
     geojson_fn = f"{fp}.json".replace(" ", "").replace(",", "").lower()
-
     #save file as indicated format
     if ff == "geopackage":
         gdf_save.drop(labels="nodes", axis=1).to_file(f"{fp}.gpkg", driver="GPKG")
     if ff == "geojson":
         print ("check2")
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
+        print (address)
         filter_buildings(geojson_fn, format_address(address)[0], format_address(address)[1])
         if check_for_buildings(geojson_fn) == True:
             print ("check1")
@@ -259,9 +258,8 @@ def main():
         gdf_save.drop(labels="nodes", axis=1).to_file(geojson_fn, driver="GeoJSON")
 
     #open geoJSON
-    #with open(geojson_fn) as jsonfile:
-
-        #geoJson = json.load(jsonfile)
+    with open(geojson_fn) as jsonfile:
+        geoJson = json.load(jsonfile)
     print (address)
 
 
