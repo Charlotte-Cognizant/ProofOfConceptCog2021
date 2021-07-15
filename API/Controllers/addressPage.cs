@@ -19,11 +19,11 @@ namespace API.Controllers
 
     [HttpGet()]
     public async Task<ActionResult<IEnumerable<AddressData>>> getAddressList(){
-        return await _context.adress.ToListAsync();
+        return await _context.Address.ToListAsync();
     }
     [HttpGet("{id}")]
     public async Task <ActionResult<AddressData>> getImageAddress(int id)
-    {return await _context.adress.FindAsync(id);}
+    {return await _context.Address.FindAsync(id);}
     
     
     

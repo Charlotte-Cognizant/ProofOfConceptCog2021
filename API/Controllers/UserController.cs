@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using API.DTO;
 using System.Net.Http;
 using System.Drawing;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -65,7 +66,7 @@ namespace API.Controllers
             };
             runPythonScript(searchAddress);
             
-            _context.adress.Add(searchAddress);
+            _context.Address.Add(searchAddress);
 
             await _context.SaveChangesAsync();
             return searchAddress;
@@ -159,6 +160,10 @@ namespace API.Controllers
                 imagebyte = Imagebyte,
             };
 
+            Console.WriteLine(spatialholder.area);
+            Console.WriteLine(spatialholder.center_lat);
+            Console.WriteLine(spatialholder.center_long);
+
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
         }
@@ -168,7 +173,10 @@ namespace API.Controllers
         {
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
             address_str=address_str+String.Format(",{0}", address.Zip);
-            string imagePath = "./imagery/" + address_str + ".png";
+            string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
+            string lower_address = trim_address.ToLower();
+            string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
+            string imagePath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\imagery\\" + no_comma_address + ".png";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
@@ -183,7 +191,10 @@ namespace API.Controllers
             string jsonstringvariable = "";
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
             address_str=address_str+String.Format(",{0}", address.Zip);
-            string jsonPath = "./buildings" + address_str + ".json";
+            string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
+            string lower_address = trim_address.ToLower();
+            string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
+            string jsonPath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\buildings\\" + no_comma_address + ".json";
             using(StreamReader r = new StreamReader(jsonPath)){
                 jsonstringvariable = r.ReadToEnd();
             }
