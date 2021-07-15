@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using API.DTO;
 using System.Net.Http;
-
+using System.Drawing;
 
 namespace API.Controllers
 {
@@ -93,9 +93,17 @@ namespace API.Controllers
         {
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
             address_str=address_str+String.Format(" {0}", address.Zip);
+<<<<<<< HEAD
             //Console.Write(address_str);
             // Set working directory and create process
             var workingDirectory = "C:/Users/jroux/Documents/workcode/scripts";
+=======
+            Console.Write(address_str);
+            // Set working directory and create process
+            var workingDirectory = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts";
+            //var workingDirectory = "C://Users//croux//Documents//workcode//scripts";
+
+>>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
             var process = new Process {
                 StartInfo = new ProcessStartInfo {
                     FileName = "cmd.exe",
@@ -113,21 +121,30 @@ namespace API.Controllers
                 if (sw.BaseStream.CanWrite)
                 {
                     // Vital to activate Anaconda
+<<<<<<< HEAD
                     sw.WriteLine("C:\\Users\\jroux\\anaconda3\\Scripts\\activate.bat");
+=======
+                    sw.WriteLine("C:\\Users\\david\\Anaconda3\\Scripts\\activate.bat");
+>>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
                     // Activate ox environment
                     sw.WriteLine("conda activate ox");
                     // set environment variables and init mapbox api
                     sw.WriteLine("set MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoiaGFydGMxNyIsImEiOiJja3IyNWxmMGQyODZyMnB0OXJlOHd4ZGJrIn0.2abXKt7EfUNNHWzvj6buRg");
                     sw.WriteLine("mapbox ...");
                     // run your script. You can also pass in arguments
+<<<<<<< HEAD
                     Console.Write(string.Format("python script.py \"{0}\" geojson", address_str));
+=======
+>>>>>>> f2b7a33313deb4d2075dafac86f9d06ab44d1ed2
                     sw.WriteLine(string.Format("python script.py \"{0}\" geojson", address_str));
                 }
             }
+
             // read multiple output lines
             while (!process.StandardOutput.EndOfStream)
             {
                 var line = process.StandardOutput.ReadLine();
+                Console.WriteLine(line);
                 if (line == "Sorry, address number not available at this time")
                 {
                     Console.WriteLine(notAvailError());
@@ -141,9 +158,68 @@ namespace API.Controllers
                     Console.WriteLine(notDetectedError());
                 }
             }
+
+            byte[] Imagebyte = ImagetoByte(address);
+            string JsonString = jsonString(address);
+
+            spatialjson spatialholder = JsonSerializer.Deserialize<spatialjson>(JsonString);
+
+            var spatialinfo = new SpatialInfo {
+                ID = spatialholder.uniqueID,
+                Area = spatialholder.area,
+                center_Lat = spatialholder.center_lat,
+                center_Long = spatialholder.center_long,
+                dateaccessed = spatialholder.date,
+                imagebyte = Imagebyte,
+            };
+
+            _context.spatial.Add(spatialinfo);
+            _context.SaveChangesAsync();
         }
 
 
+        public byte[] ImagetoByte(AddressData address)
+        {
+            string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
+            address_str=address_str+String.Format(",{0}", address.Zip);
+            string imagePath = "./imagery/" + address_str + ".png";
+            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
+            byte[] imageByteArray = new byte[filestream.Length];
+
+            filestream.Read(imageByteArray, 0, imageByteArray.Length);
+
+            return imageByteArray;
+        }
+
+
+        public String jsonString(AddressData address)
+        {
+            string jsonstringvariable = "";
+            string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
+            address_str=address_str+String.Format(",{0}", address.Zip);
+            string jsonPath = "./buildings" + address_str + ".json";
+            using(StreamReader r = new StreamReader(jsonPath)){
+                jsonstringvariable = r.ReadToEnd();
+            }
+
+            return jsonstringvariable;
+        }
+
+
+        public Image BytetoImage(SpatialInfo spatialInfo)
+        {
+            byte[] imageArray = spatialInfo.imagebyte;
+            using (MemoryStream ms = new MemoryStream(imageArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+
+
+
+
+        /*
         private void runPythonScript(string cmd, string args)
         {
             ProcessStartInfo start = new ProcessStartInfo();
@@ -195,26 +271,9 @@ namespace API.Controllers
             return spatialinfo;
         }
 
-        public byte[] ImagetoByte ()
-        {
-            //missing directory ./imagery/
-            string imagePath = "./imagery/";
-            FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
-            byte[] imageByteArray = new byte[filestream.Length];
+        
 
-            filestream.Read(imageByteArray, 0, imageByteArray.Length);
-
-
-            return imageByteArray;
-        }
-
-        // public Image BytetoImage(byte[] imageArray)
-        // {
-        //     using (MemoryStream ms = new MemoryStream(imageArray))
-        //     {
-        //         return Image.FromStream(ms);
-        //     }
-        // }
+        
 
    */
 
