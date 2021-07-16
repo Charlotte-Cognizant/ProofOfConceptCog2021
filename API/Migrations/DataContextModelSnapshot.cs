@@ -79,6 +79,9 @@ namespace API.Migrations
                     b.Property<string>("Area")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("address")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("center_Lat")
                         .HasColumnType("TEXT");
 

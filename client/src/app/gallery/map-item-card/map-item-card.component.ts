@@ -11,10 +11,12 @@ export class MapItemCardComponent implements OnInit {
   @Input() imageData!: image;
   sourceString:any;
   document:any;
+  infostring:any;
   constructor() { }
 
   ngOnInit()
   {
+    this.infostring = this.imageData.address;
     this.sourceString = "data:image/png;base64," + this.imageData.imagebyte;
   }
 
