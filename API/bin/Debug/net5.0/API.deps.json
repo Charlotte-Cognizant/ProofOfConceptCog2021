@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "API/1.0.0": {
         "dependencies": {
+          "AspNet.ScriptManager.jQuery": "3.6.0",
           "Json.Net": "1.0.33",
           "Microsoft.EntityFrameworkCore": "5.0.7",
           "Microsoft.EntityFrameworkCore.Design": "5.0.7",
@@ -331,6 +332,20 @@
           "API.dll": {}
         }
       },
+      "AspNet.ScriptManager.jQuery/3.6.0": {
+        "dependencies": {
+          "jQuery": "3.6.0"
+        },
+        "runtime": {
+          "lib/net45/AspNet.ScriptManager.jQuery.dll": {
+            "assemblyVersion": "3.6.0.0",
+            "fileVersion": "3.6.0.0"
+          }
+        },
+        "compile": {
+          "lib/net45/AspNet.ScriptManager.jQuery.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -339,6 +354,7 @@
           }
         }
       },
+      "jQuery/3.6.0": {},
       "Json.Net/1.0.33": {
         "runtime": {
           "lib/netstandard2.0/Json.Net.dll": {
@@ -3202,12 +3218,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AspNet.ScriptManager.jQuery/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B/2ickp9SMhDpRYpELMlXsv/MfWKxe2G96Z8qRfw66Nc9em2BncOIYXMOW2T7/Ws/RbMVXGlmoZA170c0GhwyA==",
+      "path": "aspnet.scriptmanager.jquery/3.6.0",
+      "hashPath": "aspnet.scriptmanager.jquery.3.6.0.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "jQuery/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sSzCTDWn15waSMjDrP21jjgG1j1pwISLaKiVCClwU4XGAmuZt+FScLkdyRvh9ppoIxAW/tJtJBYei+3CAwFQ7g==",
+      "path": "jquery/3.6.0",
+      "hashPath": "jquery.3.6.0.nupkg.sha512"
     },
     "Json.Net/1.0.33": {
       "type": "package",

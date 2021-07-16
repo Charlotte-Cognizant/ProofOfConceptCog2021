@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNet.ScriptManager.jQuery": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
             "Json.Net": {
               "target": "Package",
               "version": "[1.0.33, )"

@@ -10,6 +10,8 @@ namespace API.Entities
         //auto incremented id should match accordingly to the AddressData Entity
         public int ID { get; set; }
 
+        public string address { get; set; }
+
         public string Area { get; set; }
 
         public string center_Lat { get; set; }
