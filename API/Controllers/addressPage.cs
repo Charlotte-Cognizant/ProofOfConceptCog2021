@@ -23,7 +23,7 @@ namespace API.Controllers
         
         return await _context.spatial.ToListAsync();
     }
-    [HttpGet("specificImage")]
+    [HttpGet("Image")]
     public async Task<ActionResult<IEnumerable<Images>>> getAllImages(){
         return await _context.imagePaths.ToListAsync();
     }
@@ -32,6 +32,7 @@ namespace API.Controllers
     [HttpGet("{id}")]
     public async Task <ActionResult<SpatialInfo>> getImageAddress(int id)
     {return await _context.spatial.FindAsync(id);}
+    
     [HttpGet("path/{id}")]
     public async Task <ActionResult<String>> getImagePath(int id){
         var _value = await _context.imagePaths.FindAsync(id);

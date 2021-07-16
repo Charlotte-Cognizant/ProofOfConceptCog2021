@@ -1,5 +1,6 @@
 import {Component, OnChanges, OnInit} from '@angular/core'
 import { HttpClient } from '@angular/common/http';
+
 @Component({templateUrl:'gallery.component.html'})
 export class GalleryComponent implements OnInit, OnChanges{
     address: any;
