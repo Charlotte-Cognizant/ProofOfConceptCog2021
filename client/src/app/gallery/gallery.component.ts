@@ -4,17 +4,29 @@ import { HttpClient } from '@angular/common/http';
 export class GalleryComponent implements OnInit, OnChanges{
     address: any;
     indivaddress: any;
+    addressPath: any;
+    spatialList: any;
     
     constructor(private http:HttpClient){}
 
     ngOnInit(){
-
+        this.getAllImages();
     }
     ngOnChanges(){
+        this.getAllImages();
+    }
 
+
+
+
+    getAllImages(){
+        this.http.get('https://localhost:5001/api/addressPage').subscribe(response =>{
+            this.spatialList=response;
+            return this.spatialList;
+        })
     }
     getAddress(id: { toString: () => string; }){
-        this.http.get('https://localhost/5001/api/addressPage/' + id).subscribe(response=> {
+        this.http.get('https://localhost:5001/api/addressPage/' + id).subscribe(response=> {
             this.indivaddress=response;
             console.log(this.indivaddress);
             },(error:any)=>{
@@ -22,7 +34,13 @@ export class GalleryComponent implements OnInit, OnChanges{
             })
             return this.indivaddress;
     }
-            
+    getImagePath(id: string){
+        this.http.get('https://localhost:5001/api/addressPage/path/' + id).subscribe(response => {
+            this.addressPath=response;
+            console.error(this.addressPath.imagePath);
+        })
+        return (this.addressPath.imagePath)
+    }        
     
     getAddresss(){
      //From our database we subscribe in order to ask for some data, we ask for users => is a Typescript function I dont understand super well.

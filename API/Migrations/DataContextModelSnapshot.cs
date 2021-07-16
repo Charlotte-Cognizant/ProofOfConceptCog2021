@@ -88,6 +88,9 @@ namespace API.Migrations
                     b.Property<DateTime>("dateaccessed")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("imagePath")
+                        .HasColumnType("TEXT");
+
                     b.Property<byte[]>("imagebyte")
                         .HasColumnType("BLOB");
 

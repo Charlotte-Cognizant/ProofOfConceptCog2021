@@ -75,8 +75,6 @@ namespace API.Controllers
 
             await _context.SaveChangesAsync();
 
-
-
             return searchAddress;
         }
 
@@ -164,15 +162,20 @@ namespace API.Controllers
             var center_long = (string)json_obj["features"][0]["properties"]["centroid_lon"];
             var date = (DateTime)json_obj["features"][0]["properties"]["dateRequested"];
 
-
+            address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
+            address_str=address_str+String.Format(",{0}", address.Zip);
+            string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
+            string lower_address = trim_address.ToLower();
+            string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
+            string __imagePath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
             var spatialinfo = new SpatialInfo {
                 Area = area,
                 center_Lat = center_lat,
                 center_Long = center_long,
                 dateaccessed = date,
                 imagebyte = Imagebyte,
+                imagePath=__imagePath
             };
-
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +24,19 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "imagePaths",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    imagePath = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_imagePaths", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "spatial",
                 columns: table => new
                 {
@@ -33,7 +46,8 @@ namespace API.Migrations
                     center_Lat = table.Column<string>(type: "TEXT", nullable: true),
                     center_Long = table.Column<string>(type: "TEXT", nullable: true),
                     dateaccessed = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    imagebyte = table.Column<byte[]>(type: "BLOB", nullable: true)
+                    imagebyte = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    imagePath = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -59,6 +73,9 @@ namespace API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Address");
+
+            migrationBuilder.DropTable(
+                name: "imagePaths");
 
             migrationBuilder.DropTable(
                 name: "spatial");

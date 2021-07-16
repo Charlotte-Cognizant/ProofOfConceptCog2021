@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210715181050_initialCreate")]
-    partial class initialCreate
+    [Migration("20210715235543_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,20 @@ namespace API.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("API.Entities.Images", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("imagePath")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("imagePaths");
                 });
 
             modelBuilder.Entity("API.Entities.RegUser", b =>
@@ -74,6 +88,9 @@ namespace API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("dateaccessed")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("imagePath")
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("imagebyte")

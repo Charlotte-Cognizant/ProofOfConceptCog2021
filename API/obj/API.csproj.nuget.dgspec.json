@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj": {}
+    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj": {
+    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\API\\obj\\",
+        "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\jroux\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jroux\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +38,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNet.ScriptManager.jQuery": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
             "Json.Net": {
               "target": "Package",
               "version": "[1.0.33, )"
