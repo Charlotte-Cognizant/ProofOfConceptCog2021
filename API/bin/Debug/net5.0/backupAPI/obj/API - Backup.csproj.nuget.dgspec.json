@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {}
+    "c:\\Users\\jroux\\Documents\\workcode\\API\\backupAPI\\API - Backup.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj": {
+    "c:\\Users\\jroux\\Documents\\workcode\\API\\backupAPI\\API - Backup.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\API.csproj",
+        "projectUniqueName": "c:\\Users\\jroux\\Documents\\workcode\\API\\backupAPI\\API - Backup.csproj",
+        "projectName": "API - Backup",
+        "projectPath": "c:\\Users\\jroux\\Documents\\workcode\\API\\backupAPI\\API - Backup.csproj",
         "packagesPath": "C:\\Users\\jroux\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jroux\\Documents\\workcode\\API\\obj\\",
+        "outputPath": "c:\\Users\\jroux\\Documents\\workcode\\API\\backupAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jroux\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,14 +38,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "AspNet.ScriptManager.jQuery": {
-              "target": "Package",
-              "version": "[3.6.0, )"
-            },
-            "Json.Net": {
-              "target": "Package",
-              "version": "[1.0.33, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.7, )"
@@ -64,21 +56,9 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
-            },
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            },
-            "System.IO.FileSystem": {
-              "target": "Package",
-              "version": "[4.3.0, )"
             }
           },
           "imports": [

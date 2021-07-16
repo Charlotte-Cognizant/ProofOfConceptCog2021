@@ -22,6 +22,8 @@ namespace API.Entities
 
         public byte[] imagebyte { get; set; }
         
+        public string imagePath{get; set;}
+        
     }
     //Json Lite loadable SQLite extension
     // One big Json!!

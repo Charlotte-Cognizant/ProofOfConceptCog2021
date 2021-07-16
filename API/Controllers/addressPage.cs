@@ -1,3 +1,4 @@
+ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Data;
@@ -17,14 +18,25 @@ namespace API.Controllers
             _context = context;
         }
 
-    [HttpGet()]
-    public async Task<ActionResult<IEnumerable<AddressData>>> getAddressList(){
-        return await _context.Address.ToListAsync();
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<SpatialInfo>>> getAddressList(){
+        
+        return await _context.spatial.ToListAsync();
     }
+    [HttpGet("specificImage")]
+    public async Task<ActionResult<IEnumerable<Images>>> getAllImages(){
+        return await _context.imagePaths.ToListAsync();
+    }
+
+
     [HttpGet("{id}")]
-    public async Task <ActionResult<AddressData>> getImageAddress(int id)
-    {return await _context.Address.FindAsync(id);}
-    
+    public async Task <ActionResult<SpatialInfo>> getImageAddress(int id)
+    {return await _context.spatial.FindAsync(id);}
+    [HttpGet("path/{id}")]
+    public async Task <ActionResult<String>> getImagePath(int id){
+        var _value = await _context.imagePaths.FindAsync(id);
+        return _value.imagePath;
+    }
     
     
     

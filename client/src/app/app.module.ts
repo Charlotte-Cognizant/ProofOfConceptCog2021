@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GalleryComponent } from './gallery/index';
 import { addressComponent } from './addressPage/index';
 import { HomeComponent } from './home/index';
+import { MapItemCardComponent } from './gallery/map-item-card/map-item-card.component';
 
 
 
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/index';
     AppComponent,
     GalleryComponent,
     addressComponent,
-    HomeComponent
+    HomeComponent,
+    MapItemCardComponent
   ],
   imports: [
     BrowserModule,
