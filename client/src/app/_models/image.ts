@@ -1,5 +1,5 @@
 export interface image{
-    ID:number;
+    id:number;
     address:string;
     Area:string;
     center_Lat:string;
