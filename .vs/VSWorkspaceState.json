@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\API",
-    "\\API\\Controllers",
-    "\\API\\Data",
-    "\\API\\Entities",
     "\\client",
     "\\client\\src",
     "\\client\\src\\app",
-    "\\client\\src\\app\\addressPage",
-    "\\client\\src\\app\\detailedPage"
+    "\\client\\src\\app\\gallery",
+    "\\client\\src\\app\\gallery\\map-item-card",
+    "\\client\\src\\app\\home",
+    "\\client\\src\\app\\_models",
+    "\\client\\src\\app\\_services",
+    "\\scripts",
+    "\\scripts\\imagery"
   ],
-  "SelectedNode": "\\API\\Controllers\\UserController.cs",
+  "SelectedNode": "\\API\\Controllers",
   "PreviewInSolutionExplorer": false
 }

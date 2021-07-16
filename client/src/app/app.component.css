@@ -5,7 +5,7 @@ table, th , td{
     list-style: none;
     border-spacing: 50px;
     border-collapse: collapse;
-    width:20%;
+    width:5%;
     text-align:center;
 }
 th{
@@ -15,5 +15,19 @@ th{
 h1{
     text-align: center;
     font: arial bond;
+}
+
+.navbar{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+.logo img{
+    width:500px;
+    padding: 10px;
+    position: relative;
 }
 
