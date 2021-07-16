@@ -167,7 +167,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string __imagePath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
+            string __imagePath = "C:\\Users\\croux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
             var spatialinfo = new SpatialInfo {
                 Area = area,
                 address = address_str,
