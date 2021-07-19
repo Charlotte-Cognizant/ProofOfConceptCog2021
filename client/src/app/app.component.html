@@ -2,11 +2,13 @@
 <div class="one">
     <table  border:1px>
     <tr list-style-type ="none">
-    <router-outlet rowspan="3"> 
+    <div>
+    <router-outlet rowspan="3" id="nav"> 
     <th scope = "row" ><li><a routerLink="home" routerLinkActive="active">Home</a></li></th>
     <th scope = "row"><li><a routerLink= "gallery" routerLinkActive="active"> Gallery</a></li></th>
-    <th scope = "row"><li><a routerLink = "addressPage" routerLinkActive="active">Address Page</a></li></th>
+    <th scope = "row"><li><a routerLink = "addressPage" routerLinkActive="active">addressPage</a></li></th>
     </router-outlet>
+    </div>
     </tr>
     </table>
 </div>
