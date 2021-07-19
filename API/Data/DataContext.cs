@@ -19,5 +19,7 @@ namespace API.Data
         public DbSet<SpatialInfo> spatial { get; set; }
 
         public DbSet<Images> imagePaths { get; set; }
+
+        public DbSet<json> jsonData { get; set; }
     }
 }

@@ -109,13 +109,13 @@ export class HomeComponent implements OnInit{
     (document.getElementById("barContainer") as HTMLFormElement).style.display = "block";
     let fill = 0;
     window.setInterval(function () {
-      fill += 10;
+      fill += 5;
       if (fill === 100) {
         window.location.href = 'http://localhost:4200/gallery';
       } else {
         (document.getElementById("loading_bar") as HTMLFormElement).style.width = fill +"%";
       }
-    }, 1000);
+    }, 2000);
   }
    
    addressDataPost(){
