@@ -7,24 +7,42 @@
 <script src="app.component.ts"></script>
 </head>
 <body>
-<div>
-    <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
-    <input id ="addressI" type = 'text' formControlName="address" placeholder="Address">
-    <input id='zipI' type= 'number' formControlName='zip' placeholder="Zip">
-    <div>
-    <input id='cityI' type= 'text' formControlName='city' placeholder = "City">   
-    <input id='stateI' type= 'text' formControlName='state' placeholder = "State">
+  <div>
+
+    <div class='bar_container'>
+      Progress
+      <div class='progress'>
+        <div id='loading_bar' role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
     </div>
-   <div> 
-    <button type = "submit">
-    Submit the address
+
+    <button click="load_bar()">
+      Test addressDatapost
     </button>
-    <button (click) = "addressDataPost()">
-    Test addressDatapost
-    </button>
-    </div>
+
+    <form [formGroup]="addressFormGroup" (ngSubmit)="onSubmit()">
+      <input id="addressI" type='text' formControlName="address" placeholder="Address">
+      <input id='zipI' type='number' formControlName='zip' placeholder="Zip">
+      <div>
+        <input id='cityI' type='text' formControlName='city' placeholder="City">
+        <input id='stateI' type='text' formControlName='state' placeholder="State">
+      </div>
+      <div>
+        <button type="submit">
+          Submit the address
+        </button>
+
+        <button (click)="addressDataPost()" click="load_bar()">
+          Test addressDatapost
+        </button>
+      </div>
     </form>
-    <button (click)="mapUpdate()"> 
-    Generate map with new address  
+
+    <button (click)="mapUpdate()">
+      Generate map with new address
     </button>
+
+
     <div id='map' style='width:2000px; height:1000px;'></div>
+  </div>
+</body>

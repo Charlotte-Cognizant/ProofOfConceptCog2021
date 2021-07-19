@@ -103,13 +103,25 @@ export class HomeComponent implements OnInit{
      },error => {
        console.log(error);
      })
-   }
+  }
+
+  load_bar() {
+    let fill = 0;
+    window.setInterval(function () {
+      fill += 10;
+      if (fill === 100) {
+        clearInterval;
+      } else {
+        //document.getElementById("loading_bar").style.width = fill +"%";
+      }
+    }, 2000);
+  }
    
    addressDataPost(){
      //fetch implementation
      //Sends stuff to the backend now as a JSON package
      const url = 'https://localhost:5001/api/user/AdrPost';
-   
+
      const data = {
        "Address":this.address,
        "City":this.city,
