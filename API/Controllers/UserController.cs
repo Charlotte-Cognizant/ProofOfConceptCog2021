@@ -199,6 +199,8 @@ namespace API.Controllers
 
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
 
+            System.IO.File.Delete(imagePath);
+
             return imageByteArray;
         }
 
@@ -215,6 +217,8 @@ namespace API.Controllers
             using(StreamReader r = new StreamReader(jsonPath)){
                 jsonstringvariable = r.ReadToEnd();
             }
+
+            System.IO.File.Delete(jsonPath);
 
             return jsonstringvariable;
         }
