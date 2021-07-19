@@ -3,11 +3,12 @@
     <script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
     </script>
 </head>
-
-
 <body>
     <div class="card-image wrapper" >
         <h1 *ngIf="spatial">{{spatial.address}}</h1>
         <img  *ngIf="spatial" id = "imagepng" src={{imageData}} alt={{spatial.address}} class="card-img-top" >
+    </div>
+    <div class="infostring">
+    <p>Address:{{spatial.address}}  - <s></s> Total extent (in M^2){{spatial.Area}}  - Origin Lat =  {{spatial.center_Lat}} Origin Long = {{spatial.center_Long}}</p>
     </div>
 </body>

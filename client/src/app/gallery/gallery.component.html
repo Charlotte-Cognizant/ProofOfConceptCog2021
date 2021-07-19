@@ -3,7 +3,7 @@
 <head>
   <style>
     body {
-      min-width: 100%;
+      min-width: 1900px;
     }
 
     div.gallery {
@@ -12,7 +12,8 @@
       float: left;
       align-items: center;
       align-self: center;
-      width: 400px;
+      width: 1900px;
+      min-width: 1900px;
     }
 
       div.gallery:hover {
@@ -69,40 +70,7 @@ $(document).ready(function(){
   <div *ngFor="let map of spatialList" class="col-2">
     <app-map-item-card [imageData]="map"></app-map-item-card>
   </div>
+<div></div>
 </div>
   
-  <div class=" container">
-    <div class="gallery">
-      <!-- Replace the image src with the URL and it is enabled clicking
-    either that or have the URL open to a new webpage that includes the details html-->
-      <a target="_blank" href>
-        <img src ="" alt=this.$imagePath width="600" height="400" id = "map">
-      </a>
-
-      <div class="desc">Add a description of the image here</div>
-    </div>
-    <div class="gallery">
-      <a target="_blank" href>
-        <img alt="Address" width="600" height="400" id="map">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-    <div class="gallery">
-      <a target="_blank" href>
-        <img alt="Northern Lights" width="600" height="400">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-    <div class="gallery">
-      <a target="_blank" href>
-        <img alt="Mountains" width="600" height="400">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-  </div>
-  <div style='width: 1920px;'></div>
-</body>
-
+ </body>
