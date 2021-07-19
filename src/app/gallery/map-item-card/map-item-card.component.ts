@@ -11,7 +11,8 @@ export class MapItemCardComponent implements OnInit {
   @Input() imageData!: image;
   sourceString:any;
   document:any;
-  infostring:any;
+  infostring: any;
+
   constructor() { }
 
   ngOnInit()
