@@ -68,3 +68,10 @@ h1 {
 #barContainer{
     display:none;
 }
+
+img {
+  width: 200px;
+  position:fixed;
+  bottom:200px;
+  left:45%;
+}
