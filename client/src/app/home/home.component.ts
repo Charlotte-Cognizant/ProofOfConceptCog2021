@@ -106,7 +106,7 @@ export class HomeComponent implements OnInit{
   }
 
   load_bar() {
-    
+    (document.getElementById("barContainer") as HTMLFormElement).style.display = "block";
     let fill = 0;
     window.setInterval(function () {
       fill += 10;

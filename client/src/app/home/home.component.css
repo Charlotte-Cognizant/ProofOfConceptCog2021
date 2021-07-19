@@ -64,3 +64,7 @@ h1 {
 #userInfo{
     font-size: larger;
 }
+
+#barContainer{
+    display:none;
+}
