@@ -1,5 +1,4 @@
-<h1>{{title}}
-</h1>
+
 <head>
 <script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
 </script>
@@ -7,6 +6,10 @@
 <script src="app.component.ts"></script>
 </head>
 <body>
+    <span></span>
+    <h1>{{title}}
+    </h1>
+    <span></span>
 <div>
     <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
     <input id ="addressI" type = 'text' formControlName="address" placeholder="Address">
@@ -15,16 +18,11 @@
     <input id='cityI' type= 'text' formControlName='city' placeholder = "City">   
     <input id='stateI' type= 'text' formControlName='state' placeholder = "State">
     </div>
-   <div> 
+    <span></span>
+   <div class ='subButton'> 
     <button type = "submit">
-    Submit the address
-    </button>
-    <button (click) = "addressDataPost()">
-    Test addressDatapost
+    Submit Address
     </button>
     </div>
     </form>
-    <button (click)="mapUpdate()"> 
-    Generate map with new address  
-    </button>
-    <div id='map' style='width:2000px; height:1000px;'></div>
+
