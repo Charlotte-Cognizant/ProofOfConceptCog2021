@@ -3,14 +3,14 @@
     "",
     "\\API",
     "\\API\\Controllers",
-    "\\API\\Data",
-    "\\API\\Entities",
     "\\client",
     "\\client\\src",
     "\\client\\src\\app",
-    "\\client\\src\\app\\addressPage",
-    "\\client\\src\\app\\detailedPage"
+    "\\client\\src\\app\\_services",
+    "\\scripts",
+    "\\scripts\\buildings",
+    "\\scripts\\imagery"
   ],
-  "SelectedNode": "\\API\\Controllers\\UserController.cs",
+  "SelectedNode": "\\client\\src\\app\\app.component.html",
   "PreviewInSolutionExplorer": false
 }

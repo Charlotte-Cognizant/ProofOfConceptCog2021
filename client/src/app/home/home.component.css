@@ -1,10 +1,9 @@
 
 form{
     text-align: justify;
-    background-color: gray;
-    border-radius: 4px black;
     width:fit-content;
     display:inline-block;
+
 }
 body{
     text-align: center;
@@ -13,7 +12,6 @@ body{
 input{
     display: inline-block;
     align-self: center;
-    border-radius: 4px solid black;
     border-collapse: collapse;
 }
 button{

@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit{
      city : new FormControl(''),
      state: new FormControl('')
      })
-     title = 'Corperate Template';
+     title = 'Building Footprint Search';
      users:any;
    
      addressControl = new FormControl();
@@ -74,11 +74,11 @@ export class HomeComponent implements OnInit{
     
      ngOnInit(){ 
        
-     var map = new Map({
+     /*var map = new Map({
        accessToken : 'pk.eyJ1IjoiY2hhcmxvdHRlLWNvZ25pemFudCIsImEiOiJja3FzcXlsdzcxb2F0MnZwNTNuZGprNjZ3In0.j3qiyKwcyQn-k2LH89tZ-w',
        container:'map',
        style: 'mapbox://styles/mapbox/streets-v11'
-      })
+      })*/
    
    
    
@@ -103,13 +103,25 @@ export class HomeComponent implements OnInit{
      },error => {
        console.log(error);
      })
-   }
+  }
+
+  load_bar() {
+    let fill = 0;
+    window.setInterval(function () {
+      fill += 10;
+      if (fill === 100) {
+        clearInterval;
+      } else {
+        //document.getElementById("loading_bar").style.width = fill +"%";
+      }
+    }, 2000);
+  }
    
    addressDataPost(){
      //fetch implementation
      //Sends stuff to the backend now as a JSON package
      const url = 'https://localhost:5001/api/user/AdrPost';
-   
+
      const data = {
        "Address":this.address,
        "City":this.city,
@@ -138,7 +150,7 @@ export class HomeComponent implements OnInit{
        "Zip":this.zip
      }
      console.error('dataPackage created')
-     
+     this.addressDataPost()
      // this.http.post<any>('http://localhost:5001/api/User/AdrPost', {title: 'addressDetailSubmission'}).subscribe(data=>{
      //   data.address = this.address,
      //   data.city = this.city,
