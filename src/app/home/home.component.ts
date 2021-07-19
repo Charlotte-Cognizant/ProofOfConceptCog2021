@@ -69,8 +69,6 @@ export class HomeComponent implements OnInit{
      setAddressValue(){
        console.error("ping")
      //Here is where a data operation occurs where we make an api msg to our geocoding tool.
-   
-   
      }
    
     

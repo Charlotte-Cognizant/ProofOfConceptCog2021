@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GalleryComponent } from './gallery/index';
-import { addressComponent } from './addressPage/index';
+import { addressPagecomponent } from './addressPage/index';
 import { HomeComponent } from './home/index';
+import { MapItemCardComponent } from './gallery/map-item-card/map-item-card.component';
 
 
 
@@ -14,8 +15,9 @@ import { HomeComponent } from './home/index';
   declarations: [
     AppComponent,
     GalleryComponent,
-    addressComponent,
-    HomeComponent
+    addressPagecomponent,
+    HomeComponent,
+    MapItemCardComponent
   ],
   imports: [
     BrowserModule,
