@@ -110,17 +110,19 @@ export class HomeComponent implements OnInit{
     window.setInterval(function () {
       fill += 10;
       if (fill === 100) {
-        clearInterval;
+        window.location.href = 'http://localhost:4200/gallery';
       } else {
-        //document.getElementById("loading_bar").style.width = fill +"%";
+        (document.getElementById("loading_bar") as HTMLFormElement).style.width = fill +"%";
       }
-    }, 2000);
+    }, 1000);
   }
    
    addressDataPost(){
      //fetch implementation
      //Sends stuff to the backend now as a JSON package
      const url = 'https://localhost:5001/api/user/AdrPost';
+
+     this.load_bar();
 
      const data = {
        "Address":this.address,
