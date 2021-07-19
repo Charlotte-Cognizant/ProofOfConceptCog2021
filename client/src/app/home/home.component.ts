@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit{
   }
 
   load_bar() {
+    
     let fill = 0;
     window.setInterval(function () {
       fill += 10;
