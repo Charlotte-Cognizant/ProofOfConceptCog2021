@@ -62,11 +62,13 @@ h1 {
 }
 
 #userInfo{
-    font-size: larger;
+    font-size: x-large;
+    margin-top:20px;
 }
 
 #barContainer{
     display:none;
+    margin-top: 20px;
 }
 
 img {
@@ -74,4 +76,12 @@ img {
   position:fixed;
   bottom:200px;
   left:45%;
+}
+
+#emptyFields{
+    display:none;
+    font-size:x-large;
+    font: bolder;
+    color: red;
+    margin-top: 20px;
 }
