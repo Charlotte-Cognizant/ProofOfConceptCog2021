@@ -182,6 +182,8 @@ namespace API.Controllers
            }
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
+
+
         }
 
 
@@ -203,7 +205,6 @@ namespace API.Controllers
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
             filestream.Close();
             System.IO.File.Delete(imagePath);
-
             return imageByteArray;
         }
 
@@ -212,14 +213,18 @@ namespace API.Controllers
         {
             string jsonstringvariable = "";
             string address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
-            address_str=address_str+String.Format(",{0}", address.Zip);
+            address_str = address_str + String.Format(",{0}", address.Zip);
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
-            string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
+            string no_comma_address = String.Concat(lower_address.Where(c => !Char.IsPunctuation(c)));
             string jsonPath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\buildings\\" + no_comma_address + ".json";
-            using(StreamReader r = new StreamReader(jsonPath)){
+            using (StreamReader r = new StreamReader(jsonPath)) {
                 jsonstringvariable = r.ReadToEnd();
             }
+
+            var jsonentity = new json {
+                JsonCompleteString = jsonstringvariable,
+            };
 
             System.IO.File.Delete(jsonPath);
 

@@ -2,16 +2,17 @@
   "ExpandedNodes": [
     "",
     "\\API",
-    "\\API\\Controllers",
+    "\\API\\Data",
+    "\\API\\DTO",
+    "\\API\\Entities",
     "\\client",
     "\\client\\src",
     "\\client\\src\\app",
-    "\\client\\src\\app\\home",
-    "\\client\\src\\app\\_services",
+    "\\client\\src\\app\\gallery",
     "\\scripts",
     "\\scripts\\buildings",
     "\\scripts\\imagery"
   ],
-  "SelectedNode": "\\API\\Controllers",
+  "SelectedNode": "\\client\\src\\app\\gallery\\gallery.component.css",
   "PreviewInSolutionExplorer": false
 }

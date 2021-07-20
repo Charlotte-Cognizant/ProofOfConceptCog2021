@@ -7,6 +7,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 import {Map} from 'mapbox-gl';
+import { exitCode } from "process";
 //import * as L from 'leaflet';
 // sources : 
 //https://stackoverflow.com/questions/13204002/align-form-elements-in-css https://stackoverflow.com/questions/4221263/center-form-submit-buttons-html-css
@@ -104,26 +105,11 @@ export class HomeComponent implements OnInit{
        console.log(error);
      })
   }
-
-  load_bar() {
-    (document.getElementById("barContainer") as HTMLFormElement).style.display = "block";
-    let fill = 0;
-    window.setInterval(function () {
-      fill += 10;
-      if (fill === 100) {
-        window.location.href = 'http://localhost:4200/gallery';
-      } else {
-        (document.getElementById("loading_bar") as HTMLFormElement).style.width = fill +"%";
-      }
-    }, 1000);
-  }
    
    addressDataPost(){
      //fetch implementation
      //Sends stuff to the backend now as a JSON package
      const url = 'https://localhost:5001/api/user/AdrPost';
-
-     this.load_bar();
 
      const data = {
        "Address":this.address,
@@ -131,6 +117,16 @@ export class HomeComponent implements OnInit{
        "State":this.state,
        "Zip":this.zip.toString()
      }
+
+     if (this.address.length == 0 || data.City.length == 0 || data.State.length == 0 || data.Zip.toString().length == 0) {
+       (document.getElementById("emptyFields") as HTMLFormElement).style.display = "block";
+       stop();
+
+     } else {
+       (document.getElementById("emptyFields") as HTMLFormElement).style.display = "none";
+       this.load_bar();
+     }
+
      //request option json object
      const options = {
        method:"POST",
@@ -145,24 +141,41 @@ export class HomeComponent implements OnInit{
    
    
    
-   submitAddress(){
-     var dataPackage = {
-       "Address":this.address,
-       "City":this.city,
-       "State":this.state,
-       "Zip":this.zip
-     }
-     console.error('dataPackage created')
-     this.addressDataPost()
-     // this.http.post<any>('http://localhost:5001/api/User/AdrPost', {title: 'addressDetailSubmission'}).subscribe(data=>{
-     //   data.address = this.address,
-     //   data.city = this.city,
-     //   data.zip = this.zip,
-     //   data.state = this.state
-     // })
-   
-     //this.getUsers();
-   }
+  submitAddress() {
+    var dataPackage = {
+      "Address": this.address,
+      "City": this.city,
+      "State": this.state,
+      "Zip": this.zip
+    }
+
+      console.error('dataPackage created')
+      this.addressDataPost()
+      // this.http.post<any>('http://localhost:5001/api/User/AdrPost', {title: 'addressDetailSubmission'}).subscribe(data=>{
+      //   data.address = this.address,
+      //   data.city = this.city,
+      //   data.zip = this.zip,
+      //   data.state = this.state
+      // })
+
+      //this.getUsers();
+  }
+
+
+  load_bar() {
+    (document.getElementById("barContainer") as HTMLFormElement).style.display = "block";
+    let fill = 0;
+    window.setInterval(function () {
+      fill += 5;
+      if (fill === 100) {
+        window.location.href = 'http://localhost:4200/gallery';
+      } else {
+        (document.getElementById("loading_bar") as HTMLFormElement).style.width = fill + "%";
+      }
+    }, 2000);
+  }
+
+  
    mapUpdate(){
      //Set up information for our initial api call to mapbox 
      const addressString =encodeURIComponent(this.address)

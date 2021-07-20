@@ -132,7 +132,11 @@ def format_address(address):
     add_part = add_split[0].partition(" ")
     add_num = add_part[0]
     add_name = add_part[2]
-    add_name_suffix = add_name.split()[-1].capitalize()
+    try:
+        add_name_suffix = add_name.split()[-1].capitalize()
+    except IndexError:
+        print ("Address cannot be found.")
+        quit()
     add_name_prefix = add_name.rsplit(' ', 1)[0].title()
 
     if add_name_suffix == "Ave" or add_name_suffix == "Av":
