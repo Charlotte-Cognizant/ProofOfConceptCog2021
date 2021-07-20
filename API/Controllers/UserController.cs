@@ -102,7 +102,7 @@ namespace API.Controllers
             address_str=address_str+String.Format(" {0}", address.Zip);
             //Console.Write(address_str);
             // Set working directory and create process
-            var workingDirectory = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\";
+            var workingDirectory = "C:\\Users\\jroux\\documents\\workcode\\scripts";
             var process = new Process {
                 StartInfo = new ProcessStartInfo {
                     FileName = "cmd.exe",
@@ -120,7 +120,7 @@ namespace API.Controllers
                 if (sw.BaseStream.CanWrite)
                 {
                     // Vital to activate Anaconda
-                    sw.WriteLine("C:\\Users\\david\\Anaconda3\\Scripts\\activate.bat");
+                    sw.WriteLine("C:\\Users\\jroux\\Anaconda3\\Scripts\\activate.bat");
                     // Activate ox environment
                     sw.WriteLine("conda activate ox");
                     // set environment variables and init mapbox api
@@ -167,7 +167,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string __imagePath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\imagery\\" + no_comma_address + ".png";
+            string __imagePath = "C:\\Users\\jroux\\documents\\workcode\\imagery\\" + no_comma_address + ".png";
             var spatialinfo = new SpatialInfo {
                 Area = area,
                 address = address_str,
@@ -177,6 +177,9 @@ namespace API.Controllers
                 imagebyte = Imagebyte,
                 imagePath=__imagePath
             };
+           if(_context.spatial.Any(c=> c.address == address_str)){
+               return;
+           }
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
         }
@@ -189,7 +192,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string imagePath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\imagery\\" + no_comma_address + ".png";
+            string imagePath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\imagery\\" + no_comma_address + ".png";
             FileStream filestream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             byte[] imageByteArray = new byte[filestream.Length];
 
@@ -198,7 +201,7 @@ namespace API.Controllers
             };
 
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
-
+            filestream.Close();
             System.IO.File.Delete(imagePath);
 
             return imageByteArray;
@@ -213,7 +216,7 @@ namespace API.Controllers
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
-            string jsonPath = "C:\\Users\\david\\source\\repos\\ProofOfConceptCog2021\\scripts\\buildings\\" + no_comma_address + ".json";
+            string jsonPath = "C:\\Users\\jroux\\documents\\workcode\\scripts\\buildings\\" + no_comma_address + ".json";
             using(StreamReader r = new StreamReader(jsonPath)){
                 jsonstringvariable = r.ReadToEnd();
             }
