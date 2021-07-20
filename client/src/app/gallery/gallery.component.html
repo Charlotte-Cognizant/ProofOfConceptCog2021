@@ -1,35 +1,15 @@
 
 
 <head>
-  <style>
-    
-  </style>
   <script src="jquery-3.5.1.min.js"></script>
 </head>
 
-<script>
-$(document).ready(function(){
-  var id =0;
-  console.error("document ready");
-  $("#map").each(function(){
-    imagePath=getImagePath(id);
-    id++;
-    print(imagePath);
-    console.log(imagePath);
-      $(  this  ).prop('src', imagePath);
-    });
-});
-
-
-</script>
 <h1>Gallery of Address Live Update</h1>
 
 <body>
-<div class="row">
-  <div *ngFor="let map of spatialList" class="col-2">
-    <app-map-item-card [imageData]="map"></app-map-item-card>
+  <div class="row">
+    <div *ngFor="let map of spatialList" class="col-2">
+      <app-map-item-card [imageData]="map"></app-map-item-card>
+    </div>
   </div>
-<div></div>
-</div>
-  
- </body>
+</body>
