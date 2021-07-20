@@ -180,7 +180,6 @@ namespace API.Controllers
             _context.spatial.Add(spatialinfo);
             _context.SaveChangesAsync();
 
-            System.IO.File.Delete(__imagePath);
 
         }
 
@@ -201,7 +200,8 @@ namespace API.Controllers
             };
 
             filestream.Read(imageByteArray, 0, imageByteArray.Length);
-
+            filestream.Close();
+            System.IO.File.Delete(imagePath);
             return imageByteArray;
         }
 
