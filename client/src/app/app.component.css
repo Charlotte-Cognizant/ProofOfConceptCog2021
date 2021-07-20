@@ -14,8 +14,9 @@ th{
     text-align:center;
 }
 li {
-    float: left;
-  }
+  float: left;
+  width: 200px;
+}
   
   li a {
     display: block;

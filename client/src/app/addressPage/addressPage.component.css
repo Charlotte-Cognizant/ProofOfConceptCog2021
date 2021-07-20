@@ -1,6 +1,24 @@
-body{min-width: 1500px;}
-ul{text-align: center;
-list-style: none;
-columns: 4;
-border:1px solid black;
+body {
+  min-width: 1500px;
+  margin-top:20px;
+}
+
+ul {
+  text-align: center;
+  list-style: none;
+  columns: 4;
+  border: 1px solid black;
+}
+
+p {
+  font-size: 20px;
+  position:relative;
+  left:500px;
+  bottom:500px;
+  max-width:1000px;
+  margin-left:200px;
+}
+
+.card-image_wrapper{
+    width:fit-content;
 }
