@@ -1,26 +1,47 @@
 
 <head>
-<script type = module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id = 'mapquest'>
-</script>
-<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-<script src="app.component.ts"></script>
+  <script type=module src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" id='mapquest'>
+  </script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <script src="app.component.ts"></script>
 </head>
 <body>
-<div>
-    <form [formGroup]= "addressFormGroup" (ngSubmit)="onSubmit()">
-    <input id ="addressI" type = 'text' formControlName="address" placeholder="Address">
-    <input id='zipI' type= 'number' formControlName='zip' placeholder="Zip">
-    <div>
-    <input id='cityI' type= 'text' formControlName='city' placeholder = "City">   
-    <input id='stateI' type= 'text' formControlName='state' placeholder = "State">
-    </div>
-   <div> 
-    <button type = "submit">
-    Submit Address
-    </button>
-    <button (click) = "addressDataPost()">
-    Start Geoprocessing 
-    </button>
-    </div>
+  <span></span>
+  <h1>
+    {{title}}
+  </h1>
+  <span></span>
+  <div>
+    <form [formGroup]="addressFormGroup" (ngSubmit)="onSubmit()">
+      <input id="addressI" type='text' formControlName="address" placeholder="Address">
+      <input id='zipI' type='number' formControlName='zip' placeholder="Zip">
+      <div>
+        <input id='cityI' type='text' formControlName='city' placeholder="City">
+        <input id='stateI' type='text' formControlName='state' placeholder="State">
+      </div>
+      <span></span>
+      <div class='subButton'>
+        <button type="submit">
+          Submit Address
+        </button>
+      </div>
     </form>
-    <div id='map' style='width:2000px; height:1000px;'></div>
+  </div>
+
+  <p id="emptyFields">Incorrect Address Input. Please try again!</p>
+
+  <div id="barContainer" class="bar_container">
+    <p id="userInfo">
+      Generating Footprint... Please Wait! <br />
+      You will be redirected once finished!
+    </p>
+    <div class="progress">
+      <div class="progress-bar progres-bar-striped" id="loading_bar" role="progressbar" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0"></div>
+    </div>
+  </div>
+
+
+  <img src="https://dt-cdn.net/images/cognizant-logo-brand-blue-cmyk-300-600-515fa9b390.jpg" />
+
+  <script src="app.component.ts"></script>
+</body>

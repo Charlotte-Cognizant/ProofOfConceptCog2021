@@ -4,11 +4,16 @@
     </script>
 </head>
 <body>
-    <div class="card-image wrapper" >
+    <div class="card-image_wrapper" >
         <h1 *ngIf="spatial">{{spatial.address}}</h1>
         <img  *ngIf="spatial" id = "imagepng" src={{imageData}} alt={{spatial.address}} class="card-img-top" >
     </div>
     <div class="infostring">
-    <p>Address:{{spatial.address}}  - <s></s> Total extent (in M^2){{spatial.Area}}  - Origin Lat =  {{spatial.center_Lat}} Origin Long = {{spatial.center_Long}}</p>
+        <table>
+            <tr>Total Area (in M^2) = {{spatial.area}}</tr>
+            <tr>Origin Latitude =  {{spatial.center_Lat}}</tr>
+            <tr>Origin Longitude = {{spatial.center_Long}}</tr>
+
+        </table>
     </div>
 </body>

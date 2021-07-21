@@ -1,1 +1,8 @@
+#imagepng{
+    margin-top:10px;
+}
 
+#overallDIV{
+    max-width:contain;
+    border-image-width:initial;
+}

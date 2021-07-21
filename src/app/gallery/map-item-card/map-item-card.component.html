@@ -2,16 +2,19 @@
 <style type="text/css">
   h1{
     font-size:15px;
-
+    margin-bottom:auto;
+    min-width:100%;
+    min-block-size:40px;
   }
 </style>
 
-<div class="card mb-4">
+<div id="overallDIV" class="card mb-4">
     <h1>{{infostring}}</h1>
+
     <div class="card-image wrapper">
-        <img id = "imagepng" src={{sourceString}} alt=" Placeholder" class="card-img-top" >
+        <img id = "imagepng" src={{sourceString}} alt=" Placeholder" class="card-img-top"/> 
     </div>
     <div class="card-body p-1">
-        <a routerLink="/addressPage/{{(imageData.id)}}" > More Info Here</a>
+      <a routerLink="/addressPage/{{(imageData.id)}}"> Further Details... </a>
     </div>
-</div>>
+</div>
