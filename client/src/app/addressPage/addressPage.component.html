@@ -9,6 +9,11 @@
         <img  *ngIf="spatial" id = "imagepng" src={{imageData}} alt={{spatial.address}} class="card-img-top" >
     </div>
     <div class="infostring">
-    <p>Total Area (in M^2) = {{spatial.area}} <br /> Origin Latitude =  {{spatial.center_Lat}} <br /> Origin Longitude = {{spatial.center_Long}}</p>
+        <table>
+            <tr>Total Area (in M^2) = {{spatial.area}}</tr>
+            <tr>Origin Latitude =  {{spatial.center_Lat}}</tr>
+            <tr>Origin Longitude = {{spatial.center_Long}}</tr>
+
+        </table>
     </div>
 </body>

@@ -18,6 +18,19 @@ p {
   max-width:1000px;
   margin-left:200px;
 }
+table{
+  font-size: 20px;
+  position:relative;
+  left: 800px;
+  bottom:500px;
+  max-width:1000px;
+  margin-left:200px;
+  border-collapse: collapse;
+}
+tr{
+  border:1px solid black;
+  padding: 0 50px 0 50px;
+}
 
 .card-image_wrapper{
     width:fit-content;
