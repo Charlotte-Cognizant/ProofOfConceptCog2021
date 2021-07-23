@@ -3,7 +3,7 @@ body {
   }
 
   div.gallery {
-    margin: 15px;
+    margin: 5px;
     border: 1px solid #ccc;
     float: left;
     align-items: center;
@@ -48,4 +48,12 @@ body {
   h1{
       margin-bottom:30px;
       margin-top:20px;
+  }
+
+
+  .col-2:first-of-type{
+    border: 5px solid blue;
+    border-left: 10px ;
+    border-radius: 5px;
+    background-color: cadetblue;
   }
