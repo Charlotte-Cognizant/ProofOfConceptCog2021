@@ -24,7 +24,7 @@ export class GalleryComponent implements OnInit, OnChanges{
     getAllImages(){
         this.http.get('https://localhost:5001/api/addressPage').subscribe(response =>{
             this.spatialList=response;
-            return this.spatialList;
+            return this.spatialList.reverse();
         })
     }
     getAddress(id: { toString: () => string; }){
