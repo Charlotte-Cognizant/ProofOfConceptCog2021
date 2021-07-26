@@ -7,9 +7,19 @@
 <h1>Gallery of Address Live Update</h1>
 
 <body>
-  <div class="row">
-    <div *ngFor="let map of spatialList" class="col-2">
-      <app-map-item-card [imageData]="map"></app-map-item-card>
+<input id="search" type="text" [formControl]="searchValue">
+<p>{{searchValue.value}}</p>
+  <div class="row"> 
+    <div *ngFor="let map of spatialList| filter: searchValue.value" class="col-2" >
+        <app-map-item-card [imageData]="map"></app-map-item-card>
+        {{map.address}}        
+        <ng-template #Search>
+            <div *ngIf="(map.address.includes(searchValue.value)) else NoImage">
+              <app-map-item-card [imageData]="map"></app-map-item-card>  
+            </div>
+        </ng-template>
+        <ng-template #NoImage style="display:none; font-size: 0;"></ng-template>
+      
     </div>
-  </div>
+    </div>
 </body>

@@ -162,8 +162,14 @@ namespace API.Controllers
             var center_long = (string)json_obj["features"][0]["properties"]["centroid_lon"];
             var date = (DateTime)json_obj["features"][0]["properties"]["dateRequested"];
 
-            address_str = String.Format("{0},{1},{2}", address.StreetAddress, address.City, address.State);
-            address_str=address_str+String.Format(",{0}", address.Zip);
+            var formatted_num = (string) json_obj["features"][0]["properties"]["addr:housenumber"];
+            var formatted_name = (string) json_obj["features"][0]["properties"]["addr:street"];
+            var formatted_city = (string) json_obj["features"][0]["properties"]["addr:city"];
+            var formatted_state = (string) json_obj["features"][0]["properties"]["addr:state"];
+            var formatted_zip = (string) json_obj["features"][0]["properties"]["addr:postcode"];
+
+            address_str = String.Format("{0} {1}, {2}, {3} {4}", formatted_num, formatted_name, formatted_city, formatted_state, formatted_zip);
+            
             string trim_address = String.Concat(address_str.Where(c => !Char.IsWhiteSpace(c)));
             string lower_address = trim_address.ToLower();
             string no_comma_address = String.Concat(lower_address.Where(c=> !Char.IsPunctuation(c)));
