@@ -8,6 +8,8 @@ import { GalleryComponent } from './gallery/index';
 import { addressPagecomponent } from './addressPage/index';
 import { HomeComponent } from './home/index';
 import { MapItemCardComponent } from './gallery/map-item-card/map-item-card.component';
+import { filter } from '@angular-devkit/schematics';
+import { FilterPipe } from './gallery/filter.pipe';
 
 
 
@@ -17,7 +19,8 @@ import { MapItemCardComponent } from './gallery/map-item-card/map-item-card.comp
     GalleryComponent,
     addressPagecomponent,
     HomeComponent,
-    MapItemCardComponent
+    MapItemCardComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
