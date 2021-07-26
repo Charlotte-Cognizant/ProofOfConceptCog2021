@@ -8,7 +8,6 @@
 
 <body>
 <input id="search" type="text" [formControl]="searchValue">
-<p>{{searchValue.value}}</p>
   <div class="row"> 
     <div *ngFor="let map of spatialList| filter: searchValue.value" class="col-2" >
         <app-map-item-card [imageData]="map"></app-map-item-card>
